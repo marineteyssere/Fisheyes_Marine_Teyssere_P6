@@ -2,6 +2,27 @@
     display: none;
 }
 
+article {
+line-height: 40%;
+text-align: center;
+display: block !important;
+}
+
+h3 {
+    color: #901C1C;
+    font-size: 20px;
+}
+
+h4 {
+    color: black;
+    font-size: 15px;
+}
+
+h5 {
+    color: grey;
+    font-size: 15px;
+}
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
