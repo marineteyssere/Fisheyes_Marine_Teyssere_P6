@@ -1,7 +1,12 @@
+// Etendre photographerFactory pour ajouter les infos manquantes page d'acceuil
+
 function photographerFactory(data) {
-    const { name, portrait, country, city, tagline, price, alt } = data;
+    const { name, portrait, country, city, tagline, price, alt, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
+
+    const lienDoc = "photographer.html";
+    const lien = `${lienDoc}?photographer=${id}`;
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
@@ -9,6 +14,7 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", alt );
+        img.setAttribute("id", lien);
 
         const nom = document.createElement( 'h2' );
         nom.textContent = name;
@@ -29,7 +35,7 @@ function photographerFactory(data) {
         article.appendChild(prix);
         return (article);
     }
-    return { name, picture, country, city, tagline, price, getUserCardDOM }
+    return { name, picture, country, city, tagline, price,id, getUserCardDOM }
+  
 }
-
-// je dois rajouter city et tagline
+// 
