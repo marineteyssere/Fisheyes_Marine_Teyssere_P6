@@ -5,16 +5,18 @@ function photographerFactory(data) {
 
     const picture = `assets/photographers/${portrait}`;
 
-    const lienDoc = "photographer.html";
-    const lien = `${lienDoc}?photographer=${id}`;
+    const html = "photographer.html";
+    const lien = `${html}?photographer=${id}`;
 
     function getUserCardDOM() {
-        const article = document.createElement( 'article' );
+        const article = document.createElement( 'article' ) ;
 
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", alt );
-        img.setAttribute("id", lien);
+        //img.getAttribute("id", lien);
+        img.onclick= function (){document.location=`${html}?photographer=${id}`}
+        
 
         const nom = document.createElement( 'h2' );
         nom.textContent = name;
@@ -33,9 +35,10 @@ function photographerFactory(data) {
         article.appendChild(pays);
         article.appendChild(citation);
         article.appendChild(prix);
+
         return (article);
     }
-    return { name, picture, country, city, tagline, price,id, getUserCardDOM }
+    return { name, picture, country, city, tagline, price, getUserCardDOM }
   
 }
 // 

@@ -15,17 +15,13 @@ return res.photographers;
   })
 .catch(console.log('Une erreur est survenue: ', err));*/
 
-   
-  
+async function displayData(photographers) {
+const photographersSection = document.querySelector(".photographer_section");
 
-
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
-
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
+    photographers.forEach((photographer) => {
+        const photographerModel = photographerFactory(photographer);
+        const userCardDOM = photographerModel.getUserCardDOM();
+        photographersSection.appendChild(userCardDOM);
         });
     };
 
