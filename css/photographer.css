@@ -8,41 +8,48 @@ text-align: center;
 display: block !important;
 }
 
-h2 {
+
+.photograph-header h2 {
     color: #D3573C;
-    font-size: 36px;
+    font-size: 45px;
     letter-spacing: 2px;
 }
 
-h3 {
+.photograph-header h3 {
     color: #901C1C;
+    font-size: 25px;
+}
+
+.photograph-header h4 {
+    color: gray;
     font-size: 20px;
 }
 
-h4 {
-    color: black;
-    font-size: 15px;
-}
-
-h5 {
-    color: grey;
-    font-size: 15px;
-}
 
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 30px 100px;
+    position: static;
 }
 
-.textPhotograph-header {
-    text-align: left;
+.text-header {
+    display: flex;
+    flex-direction: column;
+    line-height: 1px;
+    margin-top: 60px;
+    position: fixed;
+    margin-left: -20px;
+
 }
 
 .imagePhotographProfil {
-    height: 200px;
-    width: 200px;
-    margin-right: 0px;
+    display: flex;
+    height: 220px;
+    width: 220px;
+    margin-left: 1100px;
+    margin-top: 45px;
+    position: fixed;
 }
 
 .contact_button {
@@ -56,6 +63,9 @@ h5 {
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 580px;
+    margin-top: 120px;
+    position: fixed;
 }
 
 .modal {

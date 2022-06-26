@@ -38,26 +38,25 @@ function successPage(photographers, media, photographerId) {
 /* eslint-disable no-unused-vars */
 /*******          elements partie Header profil du photographe   ******/
 function headerFactory(photograph) {
-  const { name, portrait, city, tagline, id } = photograph;
+  const { name, portrait, city, country, tagline, id } = photograph;
   const image = `assets/photographers/${portrait}`;
 
   function getHeaderCardDOM() {
     const linkURL = "photographer.html";
     const url = `${linkURL}?photographer=${id}`;
     return ` 
-    <article>
-      <a class="photograph-header">
-        <h2 class="textPhotograph-header">${name}</h2>
-        <div class="textPhotograph-header">
-        <h3 class="class=textPhotograph-header" aria-label="Pays du photographe" alt="Pays du photographe" tabindex="0">${city}</h3>
-        <h4 class="class=textPhotograph-header" aria-label="phrase du photographe" alt="phrase du photographe" tabindex="0">${tagline}</h4>
-        </div>
-      </a> 
-        <button class="contact_button" id="modal">Contactez moi</button>
-      <div>
-        <a href=${url}><img src=${image} alt="photo" class="imagePhotographProfil"></ a>
-    </div>
-    </article>`;
+      <div class="photograph-header">
+            <div class="text-header">
+              <h2>${name}</h2>
+              <h3  aria-label="Pays du photographe" alt="Pays du photographe" tabindex="0">${city}, ${country}</h3>
+              <h4  aria-label="phrase du photographe" alt="phrase du photographe" tabindex="0">${tagline}</h4>
+            </div>
+         
+          <button class="contact_button" id="modal">Contactez moi</button>
+      
+          <img href=${url} src=${image} alt="photo" class="imagePhotographProfil" />
+          
+      </div>`;
   }
 
   return { name, image, getHeaderCardDOM };
@@ -67,14 +66,14 @@ function headerFactory(photograph) {
 
 function galleryFactory(data) {
   const { id, image, title, video, likes, date } = data;
-  // console.log(data);
+  console.log(data);
   const imagesMedias = typeof image !== "undefined"
-    ? `assets/thumbnails/imagesMedias/${image}`
-    : `assets/thumbnails/videosMedias/${video}`.replace('.mp4', '.jpg');
+    ? `assets/images/${image}`
+    : `assets/images/${video}`.replace('.mp4', '.jpg');
   return ` 
     <article>  
-      <div class ="gallery-section">
-      <a href="#" class= "media" id="${id}" aria-label="ouvrir la media">
+      <div class ="photographer_section">
+      <a href="#" class= "media" id="${id}" aria-label="ouvrir le media">
         <figure>
           <img src=${imagesMedias} alt="pictures" tabindex="0" class="media" data-media="${id}">
           </a>
