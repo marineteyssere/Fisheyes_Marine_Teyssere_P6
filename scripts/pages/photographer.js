@@ -37,8 +37,8 @@ function successPage(photographers, media, photographerId) {
 
 /* eslint-disable no-unused-vars */
 /*******          elements partie Header profil du photographe   ******/
-function headerFactory(photograph) {
-  const { name, portrait, city, country, tagline, id } = photograph;
+function headerFactory(photographe) {
+  const { name, portrait, city, country, tagline, id } = photographe;
   const image = `assets/photographers/${portrait}`;
 
   function getHeaderCardDOM() {
@@ -67,23 +67,24 @@ function headerFactory(photograph) {
 function galleryFactory(data) {
   const { id, image, title, video, likes, date } = data;
   console.log(data);
-  const imagesMedias = typeof image !== "undefined"
+  const mediasPhotographe = typeof image !== "undefined"
     ? `assets/images/${image}`
     : `assets/images/${video}`.replace('.mp4', '.jpg');
   return ` 
-    <article>  
-      <div class ="photographer_section">
-      <a href="#" class= "media" id="${id}" aria-label="ouvrir le media">
-        <figure>
-          <img src=${imagesMedias} alt="pictures" tabindex="0" class="media" data-media="${id}">
-          </a>
+  <section class ="grillePhotosProfil_main">
+    <<menu>
+      <li><button onclick=>Popularité</button></li>
+      <li><button onclick=>Date</button></li>
+      <li><button onclick=>Filtres</button></li>
+    </menu>
+    <figure>
+      <img src=${mediasPhotographe} alt="pictures" tabindex="0" class="media" data-media="${id}">
           <figcaption>
-          <h3 class="infoMedia">${title}</h3>
-          <span class="numberLike">${likes}</span>
-         </figcaption>
-        </figure>
-      </div>
-    </article>`;
+            <h3 class="titreMedia">${title}</h3>
+            <span class="numberLike">${likes}</span>
+          </figcaption>
+    </figure>
+    </section>`;
 }
 
 /****************************************************************************/
@@ -99,16 +100,17 @@ function displayDataHeader(photographer) {
 function displayMedias(medias) {
   // console.log(medias);
   let totalLike = 0;
-  // On recreer chaque card Html stocker dans cardsDom
-  const cardsDom = medias.map((media) => {
+  // On recreer chaque card Html stocker dans enregistrementDom
+  const enregistrementDom = medias.map((media) => {
     totalLike += media.likes
     return galleryFactory(media);
 
   });
-  // On ecrase la section des cards par la nouvelle
-  document.querySelector(".gallery-section").innerHTML = cardsDom.join('');
+  //On ecrase la section des cards par la nouvelle
+  document.querySelector(".grillePhotosProfil_main").innerHTML = enregistrementDom.join('');
+  // "join" renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau
   document.querySelector('#totalLike').innerHTML = totalLike;
-  document.querySelector('.bannerLikes-section').classList.remove('hide');
+  document.querySelector('.banniereLikes_sections').classList.remove('hide');
 }
 
 

@@ -68,6 +68,39 @@ display: block !important;
     position: fixed;
 }
 
+.grillePhotosProfil_main {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 3%;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.banniereLikes_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--bann);
+    width: 23rem;
+    height: 4.5rem;
+    position: fixed;
+    z-index: 1;
+    border-radius: 5px;
+    bottom: 0;
+    right: 0%;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#totalLike::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f004";
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding-left: 5px;
+  }
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
