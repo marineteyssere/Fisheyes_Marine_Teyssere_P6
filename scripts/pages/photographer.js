@@ -28,8 +28,8 @@ function successPage(photographers, media, photographerId) {
   });
 
   displayDataHeader(photographer); //affichage du header du photographe
-  sortMediasByType(medias) //trie des medias par type
-  displayLightBox(medias); //affiche le carousel
+  /*sortMediasByType(medias) //trie des medias par type
+  displayLightBox(medias); //affiche le carousel*/
   displayMedias(medias); //affiches les medias
   console.log(medias);
   //dispatchEvent(medias);//declenchement des evenements
@@ -47,7 +47,7 @@ function headerFactory(photographe) {
     return ` 
       <div class="photograph-header">
             <div class="text-header">
-              <h2>${name}</h2>
+              <h2 id="nameModal">${name}</h2>
               <h3  aria-label="Pays du photographe" alt="Pays du photographe" tabindex="0">${city}, ${country}</h3>
               <h4  aria-label="phrase du photographe" alt="phrase du photographe" tabindex="0">${tagline}</h4>
             </div>
@@ -61,7 +61,6 @@ function headerFactory(photographe) {
 
   return { name, image, getHeaderCardDOM };
 }
-
 /****     elements DOM partie GALERIES    **********/
 
 function galleryFactory(data) {
@@ -112,5 +111,3 @@ function displayMedias(medias) {
   document.querySelector('#totalLike').innerHTML = totalLike;
   document.querySelector('.banniereLikes_sections').classList.remove('hide');
 }
-
-
