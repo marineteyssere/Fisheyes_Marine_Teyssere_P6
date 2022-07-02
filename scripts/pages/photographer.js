@@ -70,7 +70,7 @@ function galleryFactory(data) {
   if(image !== undefined) {
     mediasPhotographe = `<img src="assets/images/${image}" alt="pictures" tabindex="0" data-media="${id}">`;
   } else {
-    mediasPhotographe = `<video controls width="500px"><source src="assets/images/${video}"></video>`;
+  mediasPhotographe = `<video controls class="video_main"><source src="assets/images/${video}"></video>`;
   }
   return `
   
@@ -89,8 +89,6 @@ function galleryFactory(data) {
   </article>`
    
 }
-
-
 /****************************************************************************/
 
 function displayDataHeader(photographer) {

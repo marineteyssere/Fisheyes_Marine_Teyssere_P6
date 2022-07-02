@@ -101,6 +101,12 @@ display: block !important;
     text-align: left;
   }
   
+  .video_main {
+    width: 340px;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 
 /*.grillePhotosProfil_main article {
     display: flex;
