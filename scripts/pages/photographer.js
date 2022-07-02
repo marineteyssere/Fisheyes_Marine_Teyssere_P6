@@ -66,9 +66,12 @@ function headerFactory(photographe) {
 function galleryFactory(data) {
   const { id, image, title, video, likes, date } = data;
   console.log(data);
-  const mediasPhotographe = typeof image !== "undefined"
-    ? `assets/images/${image}`
-    : `assets/images/${video}`.replace('.mp4', '.jpg');
+  let mediasPhotographe;
+  if(image !== undefined) {
+    mediasPhotographe = `<img src="assets/images/${image}" alt="pictures" tabindex="0" data-media="${id}">`;
+  } else {
+    mediasPhotographe = `<video controls width="500px"><source src="assets/images/${video}"></video>`;
+  }
   return `
   
   <article>
@@ -76,7 +79,7 @@ function galleryFactory(data) {
 
     <a href="#" class= "media" id="${id}" aria-label="ouvrir la media">
 
-      <img src=${mediasPhotographe} alt="pictures" tabindex="0" data-media="${id}">
+      ${mediasPhotographe}
           
             <h3 class="titreMedia">${title}</h3>
             <span class="numberLike">${likes}</span>
@@ -86,6 +89,7 @@ function galleryFactory(data) {
   </article>`
    
 }
+
 
 /****************************************************************************/
 

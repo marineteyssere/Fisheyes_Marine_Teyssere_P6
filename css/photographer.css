@@ -9,6 +9,8 @@ display: block !important;
 }
 
 
+/*Header profil photographe*/
+
 .photograph-header h2 {
     color: #D3573C;
     font-size: 45px;
@@ -66,11 +68,13 @@ display: block !important;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 580px;
+    margin-left: 480px;
     position: static;
     display: flex;
     margin-top: -110px;
 }
+
+/*Grille photos profil photographe*/
 
 
 .grillePhotosProfil_main {
@@ -82,9 +86,20 @@ display: block !important;
 }
 
 .grillePhotosProfil_main img {
-    height: 420px;
-    width: 420px;
+  height: 18rem;
+  width: 21rem;
+  object-fit: cover;
+  border-radius: 5px;
+  object-position: 50% 17%;
 }
+
+.titreMedia {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 14rem;
+    color: #901C1C;
+    text-align: left;
+  }
   
 
 /*.grillePhotosProfil_main article {
