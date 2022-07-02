@@ -69,21 +69,22 @@ function galleryFactory(data) {
   const mediasPhotographe = typeof image !== "undefined"
     ? `assets/images/${image}`
     : `assets/images/${video}`.replace('.mp4', '.jpg');
-  return ` 
-  <section class ="grillePhotosProfil_main">
-    <<menu>
-      <li><button onclick=>Popularité</button></li>
-      <li><button onclick=>Date</button></li>
-      <li><button onclick=>Filtres</button></li>
-    </menu>
-    <figure>
-      <img src=${mediasPhotographe} alt="pictures" tabindex="0" class="media" data-media="${id}">
-          <figcaption>
+  return `
+  
+  <article>
+  <div class ="grillePhotosProfil_main">
+
+    <a href="#" class= "media" id="${id}" aria-label="ouvrir la media">
+
+      <img src=${mediasPhotographe} alt="pictures" tabindex="0" data-media="${id}">
+          
             <h3 class="titreMedia">${title}</h3>
             <span class="numberLike">${likes}</span>
-          </figcaption>
-    </figure>
-    </section>`;
+          
+
+  </div>
+  </article>`
+   
 }
 
 /****************************************************************************/
