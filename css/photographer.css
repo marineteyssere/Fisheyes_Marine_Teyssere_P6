@@ -8,6 +8,14 @@ text-align: center;
 display: block !important;
 }
 
+a {
+    text-decoration: none;
+}
+
+.colorBlack {
+    color: black;
+    font-weight: bold;
+}
 
 /*Header profil photographe*/
 
@@ -58,20 +66,18 @@ display: block !important;
 }
 
 .contact_button {
-    font-size: 20px;
-    font-weight: bold;
     color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
     background-color: #901C1C;
-    border-radius: 5px;
+    border: #901C1C;
+    padding: 2%;
+    font-size: 1.3rem;
     cursor: pointer;
+    border-radius: 5px;
     margin-left: 480px;
     position: static;
     display: flex;
     margin-top: -110px;
+    border: #901C1C;
 }
 
 /*Grille photos profil photographe*/
@@ -82,7 +88,7 @@ display: block !important;
     flex-wrap: wrap;
     padding-top: 3%;
     justify-content: space-around;
-    margin: 10px;
+    margin: 10px 30px;
 }
 
 .grillePhotosProfil_main img {
@@ -119,6 +125,69 @@ display: block !important;
     width: 220px;
 }*/
 
+/* Titre et like des photos  */  
+.nombreLike {
+  color: #901C1C;
+  margin-left: 55px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+i {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 501;
+  font-size: 1.25rem;
+  cursor: pointer;
+  font-style: normal;
+}
+
+.titreLike {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+/* Début menu déroulant */  
+.menuTrier {
+    position: relative;
+  }
+  
+  #liste {
+    margin-left: 2.5rem;
+  }
+  
+  /* trier par + liste deroulante */
+  .sectionTrier {
+    display: flex;
+    flex-direction: row;
+    max-width: 67%;
+    margin: 0 75px;
+    padding-top: 1%;
+  }
+  
+  select {
+    color: white;
+    background-color: #901C1C;
+    border: #901C1C;
+    padding: 2%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+
+  option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+    color: white;
+    background-color: #901C1C; /*marche passsss*/
+}
+  
+  
+/* Fin menu déroulant */  
  
 .banniereLikes_section {
     display: flex;

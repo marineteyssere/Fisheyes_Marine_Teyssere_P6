@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1365cabd78.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe </title>
   </head>
 
@@ -20,7 +21,17 @@
       </div>
 
         <!-- A MODIFIER -->
-          <span id="photographerPrice"></span>
+
+          <section class="sectionTrier" aria-haspopup="Menu deroulant" >
+            <h3 class="colorBlack ">Trier par</h3>
+            <select name="menuTrier" id="liste">
+              <option value="popularite">Popularité</option>
+              <option disabled="disabled">────────</option>
+              <option value="date">Date</option>
+              <option disabled="disabled">────────</option>
+              <option value="titre">Titre</option>
+            </select>
+          </section>
         <!-- -->
         
       <section class="grillePhotosProfil_main"></section>

@@ -80,10 +80,10 @@ function galleryFactory(data) {
     <a href="#" class= "media" id="${id}" aria-label="ouvrir la media">
 
       ${mediasPhotographe}
-          
+           <div class="titreLike">
             <h3 class="titreMedia">${title}</h3>
-            <span class="numberLike">${likes}</span>
-          
+            <span class="nombreLike">${likes} <i class="fa-solid fa-heart"></i> </span>
+          </div>
 
   </div>
   </article>`
@@ -95,7 +95,6 @@ function displayDataHeader(photographer) {
   const profilHeaderModel = headerFactory(photographer);
   document.querySelector(".photograph-header").innerHTML = profilHeaderModel.getHeaderCardDOM();
   document.getElementById("nameModal").innerHTML = photographer.name;
-  document.getElementById('photographerPrice').innerHTML = photographer.price;
 }
 
 /*********** Affichage  des medias de l ID *******************************/
