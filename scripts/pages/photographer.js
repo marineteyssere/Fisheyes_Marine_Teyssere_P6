@@ -35,7 +35,7 @@ function successPage(photographers, media, photographerId) {
   //dispatchEvent(medias);//declenchement des evenements
 }
 
-/* eslint-disable no-unused-vars */
+/* header */
 /*******          elements partie Header profil du photographe   ******/
 function headerFactory(photographe) {
   const { name, portrait, city, country, tagline, id } = photographe;
@@ -51,8 +51,8 @@ function headerFactory(photographe) {
               <h3  aria-label="Pays du photographe" alt="Pays du photographe" tabindex="0">${city}, ${country}</h3>
               <h4  aria-label="phrase du photographe" alt="phrase du photographe" tabindex="0">${tagline}</h4>
             </div>
-         
-          <button class="contact_button" id="modal">Contactez moi</button>
+
+            <button class="contact_button" id="modal">Contactez moi</button>
       
           <img href=${url} src=${image} alt="photo" class="imagePhotographProfil" />
           
@@ -89,7 +89,6 @@ function galleryFactory(data) {
   </article>`
    
 }
-/****************************************************************************/
 
 function displayDataHeader(photographer) {
   const profilHeaderModel = headerFactory(photographer);
@@ -111,5 +110,5 @@ function displayMedias(medias) {
   document.querySelector(".grillePhotosProfil_main").innerHTML = enregistrementDom.join('');
   // "join" renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau
   document.querySelector('#totalLike').innerHTML = totalLike;
-  document.querySelector('.banniereLikes_sections').classList.remove('hide');
+ document.querySelector('.banniereLikes_sections').classList;
 }
