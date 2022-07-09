@@ -110,5 +110,5 @@ function displayMedias(medias) {
   document.querySelector(".grillePhotosProfil_main").innerHTML = enregistrementDom.join('');
   // "join" renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau
   document.querySelector('#totalLike').innerHTML = totalLike;
- document.querySelector('.banniereLikes_sections').classList;
+ document.getElementsByClassName('banniereLikes_section')[0].classList;
 }
