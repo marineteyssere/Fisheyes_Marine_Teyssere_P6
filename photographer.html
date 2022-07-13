@@ -18,23 +18,74 @@
     <main id="main">
       <div class="photograph-header">
       </div>
-      <button class="contact_button" id="modal" onclick="displayModal('modal')">Contactez-moi</button>
-      <div id="contact_modal">
-        <div class="modal">
-            <header>
-                <h2>Contactez-moi</h2>
-                <img src="assets/icons/close.svg" onclick="closeModal('modal')" />
-            </header>
-            <form>
-                <div>
-                    <label>Prénom</label>
-                    <input />
-                </div>
-                <button class="contact_button">Envoyer</button>
-            </form>
-        </div>
-    </div>  
 
+       <!--test-->
+       <button class="contact_button" id="modal">Contactez moi</button>
+    </div>
+
+    <div class="modal">
+      <div class="content">
+        <button class="close" > 
+          X
+        </button>
+          <form
+            id="formulaire"
+            name="contact"
+            action="photographer.html"
+            method="get"
+            onsubmit="return validation();"
+          >
+            <div
+              class="formData">
+              <label for="first">Prénom</label><br>
+              <input
+                type="text"
+                id="first"
+                name="first"
+              /><p id="premier">Veuillez entrer un prénom avec des caractères valides. </p><p id="premier2">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p> 
+            </div>
+
+            <div
+              class="formData">
+              <label for="last">Nom</label><br>
+              <input
+                type="text"
+                id="last"
+                name="last"
+              /><p id="deuxieme">Veuillez entrer un prénom avec des caractères valides.</p><p id="deuxieme2">Veuillez entrer 2 caractères ou plus pour le champ du nom.</p>
+            </div>
+            
+            <div
+              class="formData">
+              <label for="email">E-mail</label><br>
+              <input
+                type="email"
+                id="email"
+                name="email"
+              /><p id="troisieme">Veuillez entrer une adresse mail valide.</p>
+            </div>
+
+            <div
+            class="formData">
+            <label for="message">Message</label><br>
+            <input
+              type="text"
+              id="message"
+              name="message"
+            /><p id="quatrieme">Veuillez entrer votre message.</p>
+          </div>
+            
+            <input
+              class="btn-submit btn-style"
+              type="submit"
+              value="Envoyer"
+            />
+          </form>
+        </div>
+      </div>
+
+
+    <!--fin test-->
           <section class="sectionTrier" aria-haspopup="Menu deroulant" >
             <h3 class="colorBlack ">Trier par</h3>
             <select name="menuTrier" id="liste">

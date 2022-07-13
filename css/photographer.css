@@ -73,10 +73,10 @@ a {
     font-size: 1.3rem;
     cursor: pointer;
     border-radius: 5px;
-    margin-left: 480px;
+    margin-left: 620px;
     position: static;
     display: flex;
-    margin-top: -110px;
+    margin-top: -210px;
     border: #901C1C;
 }
 
@@ -162,7 +162,7 @@ i {
     flex-direction: row;
     max-width: 67%;
     margin: 0 75px;
-    padding-top: 1%;
+    padding-top: 10%;
   }
   
   select {
@@ -224,6 +224,7 @@ i {
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    display: none;
 }
 
 .modal header {
@@ -266,4 +267,85 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(0.7);
+  }
+
+  /* Fenêtre "Merci pour votre message" */
+.innerContent {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: normal;
+  height: 660px;
+  padding-top: 200px;
+}
+/*Texte et titres formulaire*/
+label {
+  font-family: var(--font-default);
+  font-size: 17px;
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 11px;
+}
+/*Case de saisie du formulaire*/
+input {
+  padding: 8px;
+  border: 0.8px solid #ccc;
+  outline: none;
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 20px;
+  height: 48px;
+}
+/*Bordure validation case de saisie du formulaire*/
+.green {
+  padding: 8px;
+  border: 2px solid green;
+  outline: none;
+}
+
+/*Bordure erreur case de saisie du formulaire*/
+.red {
+  padding: 8px;
+  border: 2px solid red;
+  outline: none;
+}
+
+/* Style des messages d'erreurs*/
+div > p {
+  font-size: 0.6em;
+  font-weight: bold;
+  color: rgba(255, 0, 0, 0.842);
+  opacity: 0;
+  height: 0;
+}
+
+input.invalid + p {
+  opacity: 1;
+  height: auto;
+}
+
+/*Message erreur s'affiche*/
+.invalid {
+  opacity: 1;
+  height: auto;
+}
+
+/*Message erreur s'affiche pas*/
+.valid {
+  opacity: 0;
+  height: 0;
 }

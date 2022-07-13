@@ -51,8 +51,6 @@ function headerFactory(photographe) {
               <h3  aria-label="Pays du photographe" alt="Pays du photographe" tabindex="0">${city}, ${country}</h3>
               <h4  aria-label="phrase du photographe" alt="phrase du photographe" tabindex="0">${tagline}</h4>
             </div>
-
-            <button class="contact_button" id="modal">Contactez moi</button>
       
           <img href=${url} src=${image} alt="photo" class="imagePhotographProfil" />
           
