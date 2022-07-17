@@ -146,7 +146,7 @@ function validation() {
     modal.removeChild(form);
     modal.innerHTML = `<div class="innerContent">Merci pour <br> votre message</div><div class="contact_button" onclick="closeModal();">Fermer</div>`;
     return true;
-  } else if (sum <= 4){
+  } else if (sum < 4){
     return false;
   }
 
