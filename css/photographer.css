@@ -61,7 +61,7 @@ a {
     height: 220px;
     width: 220px;
     margin-left: 900px;
-    margin-top: -150px;
+    margin-top: -185px;
     position: static;
 }
 
@@ -221,7 +221,6 @@ i {
     display: none;
     padding: 35px;
     margin: 5% auto;
-    margin-top: -25%;
     position: relative;/*
     flex-direction: column;
     align-items: center;
@@ -242,6 +241,11 @@ i {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+.titreModal{
+  color: #312f2f;
+  font-size: 50px;
+  letter-spacing: 2px;
+}
 
 .modal header {
     justify-content: space-between;
@@ -285,6 +289,13 @@ form input {
     border-radius: 5px;
 }
 
+.inputMessage {
+  width: 100%;
+  height: 150px;
+  border: none;
+  border-radius: 5px;
+}
+
 .close {
     position: absolute;
     right: 15px;
@@ -295,6 +306,32 @@ form input {
     cursor: pointer;
     transform: scale(0.7);
   }
+  .buttonModal {
+    color: white;
+    background-color: #901C1C;
+    border: #901C1C;
+    padding: 2%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    position: static;
+    display: flex;
+    border: #901C1C;
+}
+.closeButton {
+    color: white;
+    background-color: #901C1C;
+    border: #901C1C;
+    padding: 2%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 620px;
+    position: static;
+    display: flex;
+    margin-top: -470px;
+    border: #901C1C;
+}
 
   /* Fenêtre "Merci pour votre message" */
 .innerContent {
@@ -303,7 +340,7 @@ form input {
   align-items: center;
   font-size: 40px;
   font-weight: normal;
-  height: 660px;
+  height: 860px;
   padding-top: 200px;
 }
 /*Texte et titres formulaire*/

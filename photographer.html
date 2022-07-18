@@ -21,12 +21,12 @@
 
        <!--test-->
        <button class="contact_button" id="modal">Contactez moi</button>
-    </div>
-
+    <div class="bground">
     <div class="modal">
       <div class="content">
         <img src="assets/icons/close.svg" onclick="closeModal('modal')" class="close" />
          <form id="formulaire" name="contact" action="#" method="get">
+            <legend class="titreModal">Contactez-moi </legend><br>
             <div
               class="formData">
               <label for="first">Prénom</label><br>
@@ -59,19 +59,21 @@
 
             <div
             class="formData">
-            <label for="message">Message</label><br>
+            <label for="message">Votre message</label><br>
             <input
               type="text"
               id="message"
               name="message"
+              class="inputMessage"
             /><p id="quatrieme">Veuillez entrer votre message.</p>
           </div>
   
-          <input class="btn-submit btn-style" onclick="validation(event)" type="submit"/>
+          <button class="buttonModal" onclick="validation(event)" type="submit">Envoyer</button>
 
           </form>
         </div>
       </div>
+    </div>
 
 
     <!--fin test-->

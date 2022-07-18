@@ -1,6 +1,6 @@
-
 // DOM Elements
-const modalbg = document.querySelector(".modal");
+const modal = document.querySelector(".modal");
+const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".contact_button");
 const formData = document.querySelectorAll(".formData");
 const closebtn = document.querySelectorAll(".close"); // Fermer la modale
@@ -14,8 +14,11 @@ closebtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Fermer 
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  modal.style.display = "block";
+
 }
 function closeModal() {
+  modalbg.style.display = "none"; 
   modalbg.style.display = "none"; // Fermer la modale
 }
 
@@ -145,7 +148,7 @@ function validation(e) {
   
   if(sum == 4) {
     document.getElementById("formulaire").style.display = "none";
-    document.getElementsByClassName("content")[0].innerHTML = `<div class="innerContent">Merci pour <br> votre message</div><div class="contact_button" onclick="closeModal();">Fermer</div>`;
+    document.getElementsByClassName("content")[0].innerHTML = `<div class="innerContent">Merci pour <br> votre message</div><div class="closeButton" onclick="closeModal();">Fermer</div>`;
   return true;
   } else {
     return false;
