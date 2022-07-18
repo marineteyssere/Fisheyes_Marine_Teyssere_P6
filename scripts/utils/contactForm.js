@@ -132,22 +132,23 @@ function testFirst() {
   
 
 // Validation du formulaire + modal Merci
-function validation() {
-  let sum = 0;
+function validation(e) {
+  e.preventDefault();
+let sum = 0;
 
-  testFirst();
-  testLast();
-  testEmail();
-  testMessage();
+testFirst();
+testLast();
+testEmail();
+testMessage();
 
-  sum = First + Last + Email + Message;
-  
-  if (sum = 4) {
-    modal.removeChild(form);
-    modal.innerHTML = `<div class="innerContent">Merci pour <br> votre message</div><div class="contact_button" onclick="closeModal();">Fermer</div>`;
-    return true;
-  } else if (sum < 4){
-    return false;
-  }
+sum = First + Last + Email + Message;
+
+if (sum = 4) {
+  modal.removeChild(form);
+  modal.innerHTML = `<div class="innerContent">Merci pour <br> votre message</div><div class="contact_button" onclick="closeModal();">Fermer</div>`;
+  return true;
+} else if (sum < 4){
+  return false;
+}
 
 }

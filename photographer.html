@@ -25,16 +25,8 @@
 
     <div class="modal">
       <div class="content">
-        <button class="close" > 
-          X
-        </button>
-          <form 
-            id="formulaire"
-            name="contact"
-            action="photographer.html"
-            method="get"
-            onsubmit="return validation();"
-          >
+        <img src="assets/icons/close.svg" onclick="closeModal('modal')" class="close" />
+         <form id="formulaire" name="contact" action="#" method="get">
             <div
               class="formData">
               <label for="first">Prénom</label><br>
@@ -75,11 +67,7 @@
             /><p id="quatrieme">Veuillez entrer votre message.</p>
           </div>
             
-            <input
-              class="btn-submit btn-style"
-              type="submit"
-              value="Envoyer"
-            />
+          <input class="btn-submit btn-style" onclick="validation(event)" type="submit"/>
           </form>
         </div>
       </div>
