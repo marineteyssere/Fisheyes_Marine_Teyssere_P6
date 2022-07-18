@@ -218,14 +218,30 @@ i {
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
-    display: flex;
+    display: none;
+    padding: 35px;
+    margin: 5% auto;
+    margin-top: -25%;
+    position: relative;/*
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
     margin: auto;
-    display: none;
+    display: none;*/
 }
+
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
 
 .modal header {
     justify-content: space-between;
