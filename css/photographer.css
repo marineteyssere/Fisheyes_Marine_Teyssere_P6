@@ -379,7 +379,7 @@ input {
 
 /* Style des messages d'erreurs*/
 div > p {
-  font-size: 0.6em;
+  font-size: 1em;
   font-weight: bold;
   color: rgba(255, 0, 0, 0.842);
   opacity: 0;

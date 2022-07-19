@@ -149,6 +149,10 @@ function validation(e) {
   if(sum == 4) {
     document.getElementById("formulaire").style.display = "none";
     document.getElementsByClassName("content")[0].innerHTML = `<div class="innerContent">Merci pour <br> votre message</div><div class="closeButton" onclick="closeModal();">Fermer</div>`;
+    console.log("Nom:", e.last.value) 
+    console.log("Prénom:", e.first.value)
+    console.log("Email:", e.email.value)
+    console.log("Message:", e.message.value)
   return true;
   } else {
     return false;
