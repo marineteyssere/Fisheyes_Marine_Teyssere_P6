@@ -193,7 +193,7 @@ i {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: var(--bann);
+    background-color: #e6826c;
     width: 23rem;
     height: 4.5rem;
     position: fixed;
@@ -203,6 +203,7 @@ i {
     right: 0%;
     font-size: 1.5rem;
     font-weight: 500;
+    margin-right: 40px;
 }
 
 #totalLike::after {
@@ -212,6 +213,13 @@ i {
     font-size: 1.4rem;
     cursor: pointer;
     padding-left: 5px;
+  }
+
+  .photographerPrice {
+    font-weight: 900;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: black;
   }
 
 .modal {

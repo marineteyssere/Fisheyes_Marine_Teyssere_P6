@@ -92,6 +92,7 @@ function displayDataHeader(photographer) {
   const profilHeaderModel = headerFactory(photographer);
   document.querySelector(".photograph-header").innerHTML = profilHeaderModel.getHeaderCardDOM();
   document.getElementById("nameModal").innerHTML = photographer.name;
+  document.getElementById("photographerPrice").innerHTML = photographer.price + '€ / jour';
 }
 
 /*********** Affichage  des medias de l ID *******************************/
@@ -102,11 +103,15 @@ function displayMedias(medias) {
   const enregistrementDom = medias.map((media) => {
     totalLike += media.likes
     return galleryFactory(media);
-
   });
+  
   //On ecrase la section des cards par la nouvelle
-  document.querySelector(".grillePhotosProfil_main").innerHTML = enregistrementDom.join('');
+  document.querySelector(".grillePhotosProfil_main").innerHTML = enregistrementDom.join('');//affiche grille photo du photographe
   // "join" renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau
-  document.querySelector('#totalLike').innerHTML = totalLike;
- document.getElementsByClassName('banniereLikes_section')[0].classList;
+  document.querySelector('#totalLike').innerHTML = totalLike;//total like
+  //document.getElementsByClassName('banniereLikes_section')[0].classList;
 }
+
+///////////
+
+
