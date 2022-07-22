@@ -19,14 +19,15 @@
       <div class="photograph-header">
       </div>
 
-       <!--test-->
+       <!--formulaire -->
+
        <button class="contact_button" id="modal" role=”dialog”>Contactez moi</button>
     <div class="bground">
     <div class="modal">
       <div class="content">
         <img src="assets/icons/close.svg" onclick="closeModal('modal')" class="close" />
          <form id="formulaire" name="contact" action="#" method="get">
-            <legend class="titreModal">Contactez-moi </legend><br>
+            <legend class="titreModal">Contactez-moi</legend><br>
             <div
               class="formData">
               <label for="first">Prénom</label><br>
@@ -76,18 +77,15 @@
     </div>
 
 
-    <!--fin test-->
-          <section class="sectionTrier" aria-haspopup="Menu deroulant" >
-            <h3 class="colorBlack ">Trier par</h3>
-            <select name="menuTrier" id="liste">
-              <option value="popularite">Popularité</option>
-              <option disabled="disabled">────────</option>
-              <option value="date">Date</option>
-              <option disabled="disabled">────────</option>
-              <option value="titre">Titre</option>
-            </select>
-          </section>
-       
+    <!--fin formulaire-->
+
+    <select name="menuTrier" id="liste" onChange="mediasParType(this.value);">
+      <option value="popularite">Popularité</option>
+      <option disabled="disabled">────────</option>
+      <option value="date">Date</option>
+      <option disabled="disabled">────────</option>
+      <option value="titre">Titre</option>
+    </select>
         
       <section class="grillePhotosProfil_main"></section>
 

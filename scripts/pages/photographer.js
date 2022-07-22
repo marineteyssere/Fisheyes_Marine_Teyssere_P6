@@ -1,4 +1,5 @@
 //trouve l ID  du photographer
+
 const request = new URLSearchParams(location.search);
 const photographerId = request.get("photographer");
 
@@ -59,11 +60,13 @@ function headerFactory(photographe) {
 
   return { name, image, getHeaderCardDOM };
 }
+
+
 /****     elements DOM partie GALERIES    **********/
 
 function galleryFactory(data) {
   const { id, image, title, video, likes, date } = data;
-  console.log(data);
+ // console.log(data);
   let mediasPhotographe;
   if(image !== undefined) {
     mediasPhotographe = `<img src="assets/images/${image}" alt="pictures" tabindex="0" data-media="${id}">`;
@@ -115,3 +118,41 @@ function displayMedias(medias) {
 ///////////
 
 
+function mediasParType(type) {
+  if (type === "titre") { // si.... triera  par titres
+      triTitre(medias);
+  }
+  else if (type === "date") {
+      triDate(medias) // sinon   triera par date
+  }
+  else {
+    triLike(medias); // sinon ce sera par  pop
+  }
+  
+  /**  filter par titre ***/
+  function triTitre(medias) {
+      return medias.tri(function (a, b) {
+           // triera par ordre alphabetique +1 ou -1 selon lettre
+          if (a.title < b.title) { return -1; }
+          if (a.title > b.title) { return 1; }
+          return 0;
+      });
+  }
+
+  /**  filter par like ***/
+  function triLike(medias) {
+      return medias.tri(function (a, b) {
+          if (a.likes < b.likes) { return -1; }
+          if (a.likes > b.likes) { return 1; }
+          return 0;
+      });
+  }
+
+  /**     filter  data   ***/
+  function triDate (medias) {
+      return medias.tri(function (a, b) {
+          return new Date(a.date) - new Date(b.date);
+      });
+  }
+  document.querySelector(".sectionTrier").innerHTML = mediasParType;
+}
