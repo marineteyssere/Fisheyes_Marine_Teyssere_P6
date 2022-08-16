@@ -543,10 +543,19 @@ input.invalid + p
 	position: fixed;
     z-index: 11;
     color: #901C1C;
-    font-size: 40px;
+    font-size: 45px;
     top: 8%;
     right: 10%;
 	font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .titre-photo {
+	font-size: 1.5rem;
+    color: #901C1C;
+    margin-left: 16%;
+    margin-top: 70%;
+    z-index: 11;
+    display: flex;
   }
 
 
