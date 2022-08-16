@@ -491,3 +491,63 @@ input.invalid + p
 	opacity: 0;
 	height: 0;
 }
+
+/******************   lightbox
+******************************************/
+.lightbox-background {
+    
+	position: fixed;
+	z-index: 10;
+	background-color: white;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	width: 100%;
+ }
+
+ .lightbox-image img,
+  .lightbox-image video {
+  display: flex;
+  width:60%;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 5px;
+  justify-content: center;
+  z-index: 11;
+  }
+
+  .droite,
+  .gauche {
+	position: fixed;
+	top: 50%;
+	right: 0;
+	color: #901C1C;
+	z-index: 11;
+  }
+  
+  .gauche {
+	right: auto;
+	left:10%;
+	color: #901C1C;
+	font-size: 50px;
+  }
+
+  .droite {
+	left: auto;
+	right:10%;
+	color: #901C1C;
+	font-size: 50px;
+  }
+
+  .fermer {
+	position: fixed;
+    z-index: 11;
+    color: #901C1C;
+    font-size: 40px;
+    top: 8%;
+    right: 10%;
+	font-family: Arial, Helvetica, sans-serif;
+  }
+
+
+

@@ -161,3 +161,6 @@ function sortMediasByType(type) {
         gallerieMedia.append(media);
     });
 }
+
+
+/****************** LIGHTBOX ********************/
