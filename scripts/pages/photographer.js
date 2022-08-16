@@ -1,14 +1,15 @@
 //trouve l ID  du photographer
-
+ 
 const request = new URLSearchParams(location.search);
 const photographerId = request.get("photographer");
-
+ 
+ 
 fetch("./data/photographers.json")
   .then(function (response) {
     return response.json();
   })
-
-  .then(function (response) { //alors renvoi des medias et des photographes
+ 
+  .then(function (response) { //renvoi des medias et des photographes
     const { photographers, media } = response;
     successPage(photographers, media, photographerId); //page ok photographers, medias, identifiant
     return;
@@ -17,25 +18,25 @@ fetch("./data/photographers.json")
     console.dir(response);
     return;
 });
-
+ 
 function successPage(photographers, media, photographerId) {
   
   const photographer = photographers.find((photographer) => { // on cherche info photographer
     return photographer.id == photographerId; // retourne  l'identifiant photographer
   });
-
+ 
   let medias = media.filter((media) => { // on filtre les medias du photographer concerné
     return media.photographerId == photographerId;
   });
-
+ 
+ 
   displayDataHeader(photographer); //affichage du header du photographe
-  //sortMediasByType(medias) //trie des medias par type
   //displayLightBox(medias); //affiche le carousel*/
   displayMedias(medias); //affiches les medias
-  console.log(medias);
   //dispatchEvent(medias);//declenchement des evenements
 }
-
+ 
+ 
 /* header */
 /*******          elements partie Header profil du photographe   ******/
 function headerFactory(photographe) {
@@ -43,7 +44,7 @@ function headerFactory(photographe) {
   const image = `assets/photographers/${portrait}`;
   const altprofil = `assets/photographers/${alt}`;
   
-
+ 
   function getHeaderCardDOM() {
     const linkURL = "photographer.html";
     const url = `${linkURL}?photographer=${id}`;
@@ -59,13 +60,13 @@ function headerFactory(photographe) {
           
       </div>`;
   }
-
+ 
   return { name, image, altprofil, getHeaderCardDOM };
 }
-
-
+ 
+ 
 /****     elements DOM partie GALERIES    **********/
-
+ 
 function galleryFactory(data) {
   const { id, image, title, video, likes, date, alt, } = data;
  // console.log(data);
@@ -77,29 +78,27 @@ function galleryFactory(data) {
   }
   return `
   
-  <article>
-  <div class ="grillePhotosProfil_main">
-
-    <a href="#" class= "media" id="${id}" aria-label="ouvrir la media">
-
-      ${mediasPhotographe}
-           <div class="titreLike">
-            <h3 aria-label="Titre du média" class="titreMedia">${title}</h3>
-            <span aria-label="Nombre like du média" class="nombreLike">${likes} <i class="fa-solid fa-heart"></i> </span>
-          </div>
-
-  </div>
+  <article class="article_media" data-title="${title}" data-date=${date} data-likes="${likes}" >
+    <div class="grillePhotosProfil_main">
+        <a href="#" class= "media" id="${id}" aria-label="ouvrir la media">
+            ${mediasPhotographe}
+            <div class="titreLike">
+                <h3 aria-label="Titre du média" class="titreMedia">${title}</h3>
+                <span aria-label="Nombre like du média" class="nombreLike">${likes} <i class="fa-solid fa-heart"></i> </span>
+            </div>
+        </a>
+    </div>
   </article>`
    
 }
-
+ 
 function displayDataHeader(photographer) {
   const profilHeaderModel = headerFactory(photographer);
   document.querySelector(".photograph-header").innerHTML = profilHeaderModel.getHeaderCardDOM();
   document.getElementById("nameModal").innerHTML = photographer.name;
   document.getElementById("photographerPrice").innerHTML = photographer.price + '€ / jour';
 }
-
+ 
 /*********** Affichage  des medias de l ID *******************************/
 function displayMedias(medias) {
   // console.log(medias);
@@ -116,4 +115,49 @@ function displayMedias(medias) {
   document.querySelector('#totalLike').innerHTML = totalLike;//total like
   //document.getElementsByClassName('banniereLikes_section')[0].classList;
 }
+ 
+ 
+/***********        TRI      ************************/  
+function sortMediasByType(type) {
+    let medias = document.querySelectorAll(".article_media");
+    medias = [].slice.call(medias);
+    console.log(medias)
+    if (type === "titre") { 
+        sortByTitle(medias);
+    }
+    else if (type === "date") {
+        sortByDate(medias); // Par date
+    }
+    else {
+        sortByLike(medias); // sinon Pop
+    }
 
+  
+    /***************   Titre   ***********************/
+    function sortByTitle(medias) {
+        medias.sort(function (a, b) {
+            return a.dataset.title.localeCompare(b.dataset.title);
+        });
+    }
+  
+    /***************    Pop  *******************/
+    function sortByLike(medias) {
+        medias.sort(function (a, b) {
+            return b.dataset.likes - a.dataset.likes;
+        });
+    }
+  
+    /****************   Date   ***********************/
+    function sortByDate(medias) {
+        medias.sort(function (a, b) {
+            return a.dataset.date.localeCompare(b.dataset.date);
+        });
+    }
+ 
+    const gallerieMedia = document.querySelector(".gallerieMedia");
+    gallerieMedia.innerHTML = "";
+ 
+    medias.forEach(media => {
+        gallerieMedia.append(media);
+    });
+}

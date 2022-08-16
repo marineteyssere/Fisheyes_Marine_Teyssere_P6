@@ -486,3 +486,8 @@ input.invalid + p
 	height: 0;
 }
 
+.date {
+
+	opacity: 0;
+	height: 0;
+}
