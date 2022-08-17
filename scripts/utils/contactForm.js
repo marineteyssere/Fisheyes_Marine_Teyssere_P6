@@ -17,7 +17,7 @@ function launchModal() {
 }
 function closeModal() {
   modalbg.style.display = "none"; 
-  modalbg.style.display = "none"; // Fermer la modale
+  modal.style.display = "none"; // Fermer la modale
 }
 
 const inputs = document.querySelectorAll("input");

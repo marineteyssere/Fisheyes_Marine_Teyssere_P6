@@ -164,3 +164,25 @@ function sortMediasByType(type) {
 
 
 /****************** LIGHTBOX ********************/
+
+// Elements
+const fondLightbox = document.querySelector(".lightbox-background");
+const lightbox = document.querySelector(".lightbox-media");
+const suivante = document.querySelectorAll(".droite");
+const precedente = document.querySelectorAll(".gauche");
+const titre = document.querySelectorAll(".titre-media");
+const croixFermer = document.querySelectorAll(".fermer"); // Fermer la modale
+
+// Fermer
+croixFermer.forEach((btn) => btn.addEventListener("click", closeLightbox)); // Fermer la modale
+
+// Modal form
+function launchLighbox () {
+  fondLightbox.style.display = "block";
+  lightbox.style.display = "block";
+
+}
+function closeLightbox() {
+  fondLightbox.style.display = "none";
+  lightbox.style.display = "none"; 
+}
