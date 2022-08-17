@@ -62,20 +62,21 @@
             <!-- SECTION GALLERY -->
             <section class="gallery-wrapper" aria-label="Gallerie photos" aria-hidden="false"></section>
             <!--Grille photo-->
-            <section class="grillePhotosProfil_main gallerieMedia"></section>
+            <section class="grillePhotosProfil_main gallerieMedia" onclick="launchLighbox('lightbox-background')"></section>
+
 
 			<!-- CAROUSEL  LIGHTBOX    -->
   <section id="lightbox" class="lightbox-background" aria-label="Carousel des images">
 
 	<div class="lightbox-media" ></div>
 
-	<button class="fermer" aria-label="Fermer le carousel"> x </button>
-
     <i class="fa-solid fa-angle-right droite" aria-label="Image suivante"></i> 
 
     <i class="fa-solid fa-angle-left gauche" aria-label="Image précédente"></i>
 
 	<title class="titre-media"></title>
+
+	<button class="fermer" aria-label="Fermer le carousel" onclick="closeLightbox('lightbox-background')"> x </button>
 
   </section>
 

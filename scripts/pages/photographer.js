@@ -172,8 +172,10 @@ const suivante = document.querySelectorAll(".droite");
 const precedente = document.querySelectorAll(".gauche");
 const titre = document.querySelectorAll(".titre-media");
 const croixFermer = document.querySelectorAll(".fermer"); // Fermer la modale
-
+const photosLightbox = document.querySelectorAll(".article_media");
 // Fermer
+
+photosLightbox.forEach(() => addEventListener("click", launchLighbox));
 croixFermer.forEach((btn) => btn.addEventListener("click", closeLightbox)); // Fermer la modale
 
 // Modal form
