@@ -203,9 +203,9 @@ function galleryCarrousel(id, type, media, alt, title) {
     let mediasCarrousel;
  
     if(type === "video") {
-        mediasCarrousel = `<img src="assets/images/${media}" alt="${alt}"  data-media="${id}">`;
+        mediasCarrousel =  `<video controls class="video_main"><source src="assets/images/${media}" alt="${alt}"></video>`;
     } else {
-        mediasCarrousel = `<video controls class="video_main"><source src="assets/images/${media}" alt="${alt}"></video>`;
+        mediasCarrousel = `<img src="assets/images/${media}" alt="${alt}"  data-media="${id}">`;    
     }
  
  
@@ -222,9 +222,10 @@ function galleryCarrousel(id, type, media, alt, title) {
 }
  
  
-/*gauche.addEventListener("click", changeLeft);
-droite.addEventListener("click", changeRight);*/
- 
+//gauche.addEventListener("click", changeLeft);
+//droite.addEventListener("click", changeRight);
+
+
  
 
  
