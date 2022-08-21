@@ -1,4 +1,4 @@
-// Etendre photographerFactory pour ajouter les infos manquantes page d'acceuil
+// Page d'acceuil
 
 function photographerFactory(data) {
     const { name, portrait, country, city, tagline, price, alt, id } = data;

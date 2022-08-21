@@ -72,9 +72,9 @@ function galleryFactory(data) {
  // console.log(data);
   let mediasPhotographe;
   if(image !== undefined) {
-    mediasPhotographe = `<img src="assets/images/${image}" alt="${alt}" tabindex="0" data-media="${id}">`;
+    mediasPhotographe = `<img src="assets/images/${image}" alt="${alt}" data-media="${id}">`;
   } else {
-  mediasPhotographe = `<video controls class="video_main"><source src="assets/images/${video}"></video>`;
+  mediasPhotographe = `<video controls class="video_main"><source src="assets/images/${video}" alt="${alt}" ></video>`;
   }
   return `
   
@@ -166,6 +166,7 @@ function sortMediasByType(type) {
 /****************** LIGHTBOX ********************/
 
 // Elements
+
 const fondLightbox = document.querySelector(".lightbox-background");
 const lightbox = document.querySelector(".lightbox-media");
 const suivante = document.querySelectorAll(".droite");
@@ -188,3 +189,42 @@ function closeLightbox() {
   fondLightbox.style.display = "none";
   lightbox.style.display = "none"; 
 }
+
+addEventListener
+
+function galleryCarrousel(dataCarrousel) {
+  const { id, image, title, alt, } = dataCarrousel;
+
+ // console.log(dataCarrousel);
+  let mediasCarrousel;
+
+  if(image !== undefined) {
+   mediasCarrousel = `<img src="assets/images/${image}" alt="${alt}"  data-media="${id}">`;
+  } else {
+  mediasCarrousel = `<video controls class="video_main"><source src="assets/images/${video}" alt="${alt}" ></video>`;
+  }
+  return `
+
+ <section id="lightbox" class="lightbox-background" aria-label="Carousel des images">
+
+                <div class="lightbox-media" id="${id}" ></div>
+
+                <i class="fa-solid fa-angle-right droite" aria-label="Image suivante"></i> 
+
+                <i class="fa-solid fa-angle-left gauche" aria-label="Image précédente"></i>
+
+                <title class="titre-media" data-title="${title}"></title>
+
+                <button class="fermer" aria-label="Fermer le carousel" onclick="closeLightbox('lightbox-background')"> x </button>
+
+             </section>
+`
+   
+}
+ 
+
+gauche.addEventListener("click", changeLeft);
+droite.addEventListener("click", changeRight);
+
+
+ 

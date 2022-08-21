@@ -433,7 +433,6 @@ form textarea
 /*Texte et titres formulaire*/
 label
 {
-	font-family: var(--font-default);
 	font-size: 17px;
 	font-weight: normal;
 	display: inline-block;
