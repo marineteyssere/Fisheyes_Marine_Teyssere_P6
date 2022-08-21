@@ -20,7 +20,7 @@ fetch("./data/photographers.json")
 });
  
 function successPage(photographers, media, photographerId) {
-  
+ 
   const photographer = photographers.find((photographer) => { // on cherche info photographer
     return photographer.id == photographerId; // retourne  l'identifiant photographer
   });
@@ -43,7 +43,7 @@ function headerFactory(photographe) {
   const { name, portrait, city, country, tagline, id, alt, } = photographe;
   const image = `assets/photographers/${portrait}`;
   const altprofil = `assets/photographers/${alt}`;
-  
+ 
  
   function getHeaderCardDOM() {
     const linkURL = "photographer.html";
@@ -55,9 +55,9 @@ function headerFactory(photographe) {
               <h3  aria-label="Pays du photographe" tabindex="0">${city}, ${country}</h3>
               <h4  aria-label="Phrase du photographe" tabindex="0">${tagline}</h4>
             </div>
-      
+ 
           <img href=${url} src=${image} alt="${alt}" class="imagePhotographProfil" />
-          
+ 
       </div>`;
   }
  
@@ -71,16 +71,22 @@ function galleryFactory(data) {
   const { id, image, title, video, likes, date, alt, } = data;
  // console.log(data);
   let mediasPhotographe;
+  let media;
+  let mediaType;
   if(image !== undefined) {
     mediasPhotographe = `<img src="assets/images/${image}" alt="${alt}" data-media="${id}">`;
-  } else {
+    media = image;
+    mediaType = "image";
+} else {
   mediasPhotographe = `<video controls class="video_main"><source src="assets/images/${video}" alt="${alt}" ></video>`;
-  }
+    media = video;
+    mediaType = "video";
+}
   return `
-  
+ 
   <article class="article_media" data-title="${title}" data-date=${date} data-likes="${likes}" >
     <div class="grillePhotosProfil_main">
-        <a href="#" class= "media" id="${id}" aria-label="ouvrir la media">
+        <a href="#" class= "media" id="${id}" aria-label="ouvrir la media" onclick="galleryCarrousel('${id}', '${mediaType}', '${media}', '${alt}', '${title}')">
             ${mediasPhotographe}
             <div class="titreLike">
                 <h3 aria-label="Titre du média" class="titreMedia">${title}</h3>
@@ -89,7 +95,7 @@ function galleryFactory(data) {
         </a>
     </div>
   </article>`
-   
+ 
 }
  
 function displayDataHeader(photographer) {
@@ -108,7 +114,7 @@ function displayMedias(medias) {
     totalLike += media.likes
     return galleryFactory(media);
   });
-  
+ 
   //On ecrase la section des cards par la nouvelle
   document.querySelector(".grillePhotosProfil_main").innerHTML = enregistrementDom.join('');//affiche grille photo du photographe
   // "join" renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau
@@ -131,22 +137,22 @@ function sortMediasByType(type) {
     else {
         sortByLike(medias); // sinon Pop
     }
-
-  
+ 
+ 
     /***************   Titre   ***********************/
     function sortByTitle(medias) {
         medias.sort(function (a, b) {
             return a.dataset.title.localeCompare(b.dataset.title);
         });
     }
-  
+ 
     /***************    Pop  *******************/
     function sortByLike(medias) {
         medias.sort(function (a, b) {
             return b.dataset.likes - a.dataset.likes;
         });
     }
-  
+ 
     /****************   Date   ***********************/
     function sortByDate(medias) {
         medias.sort(function (a, b) {
@@ -161,70 +167,64 @@ function sortMediasByType(type) {
         gallerieMedia.append(media);
     });
 }
-
-
+ 
+ 
 /****************** LIGHTBOX ********************/
-
+ 
 // Elements
-
+ 
 const fondLightbox = document.querySelector(".lightbox-background");
-const lightbox = document.querySelector(".lightbox-media");
+const lightbox = document.getElementById("lightbox");
 const suivante = document.querySelectorAll(".droite");
 const precedente = document.querySelectorAll(".gauche");
 const titre = document.querySelectorAll(".titre-media");
 const croixFermer = document.querySelectorAll(".fermer"); // Fermer la modale
 const photosLightbox = document.querySelectorAll(".article_media");
 // Fermer
-
+ 
 photosLightbox.forEach(() => addEventListener("click", launchLighbox));
 croixFermer.forEach((btn) => btn.addEventListener("click", closeLightbox)); // Fermer la modale
-
+ 
 // Modal form
-function launchLighbox () {
-  fondLightbox.style.display = "block";
-  lightbox.style.display = "block";
-
+function launchLighbox () {  
+    lightbox.style.display = "block";
+ 
 }
 function closeLightbox() {
-  fondLightbox.style.display = "none";
   lightbox.style.display = "none"; 
 }
-
-addEventListener
-
-function galleryCarrousel(dataCarrousel) {
-  const { id, image, title, alt, } = dataCarrousel;
-
- // console.log(dataCarrousel);
-  let mediasCarrousel;
-
-  if(image !== undefined) {
-   mediasCarrousel = `<img src="assets/images/${image}" alt="${alt}"  data-media="${id}">`;
-  } else {
-  mediasCarrousel = `<video controls class="video_main"><source src="assets/images/${video}" alt="${alt}" ></video>`;
-  }
-  return `
-
- <section id="lightbox" class="lightbox-background" aria-label="Carousel des images">
-
-                <div class="lightbox-media" id="${id}" ></div>
-
-                <i class="fa-solid fa-angle-right droite" aria-label="Image suivante"></i> 
-
-                <i class="fa-solid fa-angle-left gauche" aria-label="Image précédente"></i>
-
-                <title class="titre-media" data-title="${title}"></title>
-
-                <button class="fermer" aria-label="Fermer le carousel" onclick="closeLightbox('lightbox-background')"> x </button>
-
-             </section>
-`
-   
+ 
+ 
+function galleryCarrousel(id, type, media, alt, title) {
+    launchLighbox();
+    console.log(title)
+ 
+    // console.log(dataCarrousel);
+    let mediasCarrousel;
+ 
+    if(type === "video") {
+        mediasCarrousel = `<img src="assets/images/${media}" alt="${alt}"  data-media="${id}">`;
+    } else {
+        mediasCarrousel = `<video controls class="video_main"><source src="assets/images/${media}" alt="${alt}"></video>`;
+    }
+ 
+ 
+    const LightboxContenu = `
+        <div class="lightbox-media" id="${id}" >
+            ${mediasCarrousel}
+            <i class="fa-solid fa-angle-right droite" aria-label="Image suivante"></i> 
+            <i class="fa-solid fa-angle-left gauche" aria-label="Image précédente"></i>
+            <title class="titre-media">${title}</title>
+            <button class="fermer" aria-label="Fermer le carousel" onclick="closeLightbox('lightbox-background')">x</button>
+        </div>`;
+ 
+        lightbox.insertAdjacentHTML("beforeend", LightboxContenu);
 }
  
-
-gauche.addEventListener("click", changeLeft);
-droite.addEventListener("click", changeRight);
-
+ 
+/*gauche.addEventListener("click", changeLeft);
+droite.addEventListener("click", changeRight);*/
+ 
+ 
 
  

@@ -2,7 +2,7 @@
 {
 	display: none;
 }
-
+ 
 article
 {
 	line-height: 40%;
@@ -10,41 +10,41 @@ article
 	display: block !important;
 	cursor: pointer;
 }
-
+ 
 .grillePhotosProfil_main article:hover
 {
 	box-shadow: 0px 10px 20px 2px rgba(116, 112, 112, 0.5);
 	cursor: pointer;
 }
-
+ 
 .grillePhotosProfil_main article:focus
 {
 	box-shadow: 0px 10px 20px 2px rgba(116, 112, 112, 0.5);
 	cursor: pointer;
 }
-
+ 
 a
 {
 	text-decoration: none;
 	cursor: pointer;
 }
-
+ 
 a .logo:hover
 {
 	height: 60px;
 }
-
+ 
 a .logo:focus
 {
 	height: 60px;
 }
-
+ 
 .colorBlack
 {
 	color: black;
 	font-weight: bold;
 }
-
+ 
 /*Header profil photographe*/
 .photograph-header h2
 {
@@ -52,19 +52,19 @@ a .logo:focus
 	font-size: 45px;
 	letter-spacing: 2px;
 }
-
+ 
 .photograph-header h3
 {
 	color: #901C1C;
 	font-size: 25px;
 }
-
+ 
 .photograph-header h4
 {
 	color: gray;
 	font-size: 20px;
 }
-
+ 
 .photograph-header
 {
 	background-color: #FAFAFA;
@@ -72,7 +72,7 @@ a .logo:focus
 	margin: 30px 80px;
 	position: static;
 }
-
+ 
 .text-header
 {
 	display: flex;
@@ -81,12 +81,12 @@ a .logo:focus
 	position: static;
 	margin-left: -20px;
 }
-
+ 
 #nameModal
 {
 	margin-top: 85px;
 }
-
+ 
 .imagePhotographProfil
 {
 	display: flex;
@@ -96,7 +96,7 @@ a .logo:focus
 	margin-top: -185px;
 	position: static;
 }
-
+ 
 .contact_button
 {
 	color: white;
@@ -111,7 +111,7 @@ a .logo:focus
 	display: flex;
 	margin-top: -210px;
 }
-
+ 
 .contact_button:hover
 {
 	background-color: #D3573C;
@@ -120,7 +120,7 @@ a .logo:focus
 	font-size: 1.5rem;
 	cursor: pointer;
 }
-
+ 
 .contact_button:focus-visible
 {
 	background-color: #D3573C;
@@ -129,7 +129,7 @@ a .logo:focus
 	font-size: 1.5rem;
 	cursor: pointer;
 }
-
+ 
 /*Grille photos profil photographe*/
 .grillePhotosProfil_main
 {
@@ -139,7 +139,7 @@ a .logo:focus
 	justify-content: space-around;
 	margin: 10px 30px;
 }
-
+ 
 .grillePhotosProfil_main img
 {
 	height: 18rem;
@@ -148,7 +148,7 @@ a .logo:focus
 	border-radius: 5px;
 	object-position: 50% 17%;
 }
-
+ 
 .titreMedia
 {
 	white-space: nowrap;
@@ -157,7 +157,7 @@ a .logo:focus
 	color: #901C1C;
 	text-align: left;
 }
-
+ 
 .video_main
 {
 	width: 340px;
@@ -165,20 +165,20 @@ a .logo:focus
 	object-fit: cover;
 	border-radius: 5px;
 }
-
+ 
 /*.grillePhotosProfil_main article
 {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 2%;
 }
-
+ 
 .imagePhotographProfil_main
 {
 	height: 220px;
 	width: 220px;
 }
-
+ 
 */
 /* Titre et like des photos  */
 .nombreLike
@@ -188,7 +188,7 @@ a .logo:focus
 	font-size: 1.25rem;
 	cursor: pointer;
 }
-
+ 
 i
 {
 	font-family: "Font Awesome 5 Free";
@@ -197,25 +197,25 @@ i
 	cursor: pointer;
 	font-style: normal;
 }
-
+ 
 .titreLike
 {
 	display: flex;
 	flex-direction: row;
 	align-items: baseline;
 }
-
+ 
 /* Début menu déroulant */
 .menuTrier
 {
 	position: relative;
 }
-
+ 
 #liste
 {
 	margin-left: 2.5rem;
 }
-
+ 
 /* trier par + liste deroulante */
 .sort
 {
@@ -225,7 +225,7 @@ i
 	margin: 0 75px;
 	padding-top: 10%;
 }
-
+ 
 select
 {
 	color: white;
@@ -236,21 +236,21 @@ select
 	cursor: pointer;
 	border-radius: 5px;
 }
-
+ 
 select:hover
 {
 	background-color: #D3573C;
 	padding: 2.1%;
 	font-size: 1.5rem;
 }
-
+ 
 select:focus-visible
 {
 	background-color: #D3573C;
 	padding: 2.1%;
 	font-size: 1.5rem;
 }
-
+ 
 option
 {
 	font-weight: normal;
@@ -262,7 +262,7 @@ option
 	background-color: #901C1C;
 	/*marche passsss*/
 }
-
+ 
 /* Fin menu déroulant */
 .banniereLikes_section
 {
@@ -281,7 +281,7 @@ option
 	font-weight: 500;
 	margin-right: 40px;
 }
-
+ 
 #totalLike::after
 {
 	font-family: "Font Awesome 5 Free";
@@ -291,7 +291,7 @@ option
 	cursor: pointer;
 	padding-left: 5px;
 }
-
+ 
 .photographerPrice
 {
 	font-weight: 900;
@@ -299,7 +299,7 @@ option
 	cursor: pointer;
 	color: black;
 }
-
+ 
 .bground
 {
 	display: none;
@@ -312,7 +312,7 @@ option
 	background-color: rgba(26, 39, 156, 0.4);
 	z-index: 2;
 }
-
+ 
 .modal
 {
 	border-radius: 7px;
@@ -328,14 +328,14 @@ option
 	height: 730px;
 	z-index: 2;
 }
-
+ 
 .titreModal
 {
 	color: #312f2f;
 	font-size: 40px;
 	letter-spacing: 2px;
 }
-
+ 
 form
 {
 	display: flex;
@@ -343,13 +343,13 @@ form
 	flex-direction: column;
 	align-items: flex-start;
 }
-
+ 
 form label
 {
 	color: #413d3d;
 	font-size: 30px;
 }
-
+ 
 form div
 {
 	display: flex;
@@ -358,7 +358,7 @@ form div
 	align-items: self-start;
 	margin-bottom: 26px;
 }
-
+ 
 form input
 {
 	width: 100%;
@@ -366,7 +366,7 @@ form input
 	border: none;
 	border-radius: 5px;
 }
-
+ 
 form textarea
 {
 	width: 100%;
@@ -374,7 +374,7 @@ form textarea
 	border: none;
 	border-radius: 5px;
 }
-
+ 
 .close
 {
 	position: absolute;
@@ -386,7 +386,7 @@ form textarea
 	cursor: pointer;
 	transform: scale(0.7);
 }
-
+ 
 .buttonModal
 {
 	color: white;
@@ -400,7 +400,7 @@ form textarea
 	display: flex;
 	border: #901C1C;
 }
-
+ 
 .closeButton
 {
 	color: white;
@@ -416,7 +416,7 @@ form textarea
 	margin-top: -470px;
 	border: #901C1C;
 }
-
+ 
 /* Fenêtre "Merci pour votre message" */
 .innerContent
 {
@@ -429,7 +429,7 @@ form textarea
 	padding-top: 200px;
 	color: black;
 }
-
+ 
 /*Texte et titres formulaire*/
 label
 {
@@ -438,7 +438,7 @@ label
 	display: inline-block;
 	margin-bottom: 11px;
 }
-
+ 
 /*Bordure validation case de saisie du formulaire*/
 .green
 {
@@ -446,7 +446,7 @@ label
 	border: 2px solid green;
 	outline: none;
 }
-
+ 
 /*Bordure erreur case de saisie du formulaire*/
 .red
 {
@@ -454,7 +454,7 @@ label
 	border: 2px solid red;
 	outline: none;
 }
-
+ 
 /* Style des messages d'erreurs*/
 div > p
 {
@@ -464,37 +464,37 @@ div > p
 	opacity: 0;
 	height: 0;
 }
-
+ 
 input.invalid + p
 {
 	opacity: 1;
 	height: auto;
 }
-
+ 
 /*Message erreur s'affiche*/
 .invalid
 {
 	opacity: 1;
 	height: auto;
 }
-
+ 
 /*Message erreur s'affiche pas*/
 .valid
 {
 	opacity: 0;
 	height: 0;
 }
-
+ 
 .date {
-
+ 
 	opacity: 0;
 	height: 0;
 }
-
+ 
 /******************   lightbox
 ******************************************/
 .lightbox-background {
-    
+ 
 	position: fixed;
 	z-index: 10;
 	background-color: white;
@@ -504,9 +504,9 @@ input.invalid + p
 	width: 100%;
     display: none;
  }
-
- .lightbox-image img,
-  .lightbox-image video {
+ 
+ .lightbox-media img,
+  .lightbox-media video {
   display: flex;
   width:60%;
   height: 60%;
@@ -514,8 +514,10 @@ input.invalid + p
   border-radius: 5px;
   justify-content: center;
   z-index: 11;
+  margin-left: 250px;
+  margin-top: 180px;
   }
-
+ 
   .droite,
   .gauche {
 	position: fixed;
@@ -525,21 +527,21 @@ input.invalid + p
 	z-index: 11;
 	cursor: pointer;
   }
-  
+ 
   .gauche {
 	right: auto;
 	left:10%;
 	color: #901C1C;
 	font-size: 50px;
   }
-
+ 
   .droite {
 	left: auto;
 	right:10%;
 	color: #901C1C;
 	font-size: 50px;
   }
-
+ 
   .fermer {
 	position: fixed;
     z-index: 11;
@@ -552,17 +554,18 @@ input.invalid + p
     background: none;
 	cursor: pointer;
   }
-
-  .titre-photo {
+ 
+  .titre-media {
 	font-size: 1.5rem;
     color: #901C1C;
-    margin-left: 16%;
-    margin-top: 70%;
+    justify-content: center;
     z-index: 11;
     display: flex;
   }
-
-  
-
+ 
+ 
+ 
+ 
+ 
 
 
