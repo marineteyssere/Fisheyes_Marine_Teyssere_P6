@@ -31,9 +31,8 @@ function successPage(photographers, media, photographerId) {
  
  
   displayDataHeader(photographer); //affichage du header du photographe
-  //displayLightBox(medias); //affiche le carousel*/
   displayMedias(medias); //affiches les medias
-  //dispatchEvent(medias);//declenchement des evenements
+  
 }
  
  
@@ -212,18 +211,26 @@ function galleryCarrousel(id, type, media, alt, title) {
     const LightboxContenu = `
         <div class="lightbox-media" id="${id}" >
             ${mediasCarrousel}
-            <i class="fa-solid fa-angle-right droite" aria-label="Image suivante"></i> 
-            <i class="fa-solid fa-angle-left gauche" aria-label="Image précédente"></i>
+            <i class="fa-solid fa-angle-right droite" aria-label="Image suivante" onclick="flecheDroite"></i> 
+            <i class="fa-solid fa-angle-left gauche" aria-label="Image précédente" onclick="flecheGauche" ></i>
             <title class="titre-media">${title}</title>
             <button class="fermer" aria-label="Fermer le carousel" onclick="closeLightbox('lightbox-background')">x</button>
         </div>`;
  
         lightbox.insertAdjacentHTML("beforeend", LightboxContenu);
 }
- 
- 
-//gauche.addEventListener("click", changeLeft);
-//droite.addEventListener("click", changeRight);
+
+function flecheGauche (index) {
+  const totalMedias = document.querySelectorAll.photosLightbox.length;
+  console.log(photosLightbox.length)
+  precedente.forEach((flecheG)=>flecheG.addEventListener ("click", changeLeft(totalMedias), [index-1]));
+}
+
+function flecheDroite (index) {
+  const totalMedias = document.querySelectorAll.photosLightbox.length;
+  suivante.forEach((flecheD)=>flecheD.addEventListener ("click", changeRight(totalMedias), [index+1]));
+}
+
 
 
  
