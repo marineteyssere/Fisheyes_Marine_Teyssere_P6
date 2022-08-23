@@ -15,7 +15,7 @@
         <main id="main">
             <div class="photograph-header"></div>
             <!--formulaire -->
-            <button class="contact_button" id="modal" role=”dialog” aria-label="Ouvre formulaire de contact">Contactez moi</button>
+            <button class="contact_button" id="modal" role=”dialog” aria-label="Ouvre formulaire de contact" aria-describedby="Formulaire de contact">Contactez moi</button>
             <form action="/" method="POST" id="formulaire">
                 <div class="bground">
                     <div class="modal">
@@ -48,7 +48,7 @@
             </div>
             <!--fin formulaire-->
             <!-- SECTION FILTRES/  SORT -->
-            <div role="search" aria-hidden="false" class="sort" aria-label="Menu pour trier photos">
+            <div role="search" aria-hidden="false" class="sort" aria-label="Menu pour trier photos" aria-describedby="Menu pour trier photos">
                 <label for="sort-choice"></label>
                 <select name="sorter" aria-expanded="false" id="sort-choice" onchange="sortMediasByType(this.value)">
                     <option value="popularite" aria-expanded="false">Popularité</option>
@@ -66,7 +66,7 @@
  
  
 			<!-- CAROUSEL  LIGHTBOX    -->
-            <section id="lightbox" class="lightbox-background" aria-label="Carousel des images"></section>
+            <section id="lightbox" class="lightbox-background" aria-label="Carousel des images" role=”dialog” aria-describedby="Carrousel des images"></section>
  
  
             <!--BANNIERE LIKE-->

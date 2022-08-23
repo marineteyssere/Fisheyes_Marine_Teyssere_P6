@@ -13,7 +13,11 @@ closebtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Fermer 
 function launchModal() {
   modalbg.style.display = "block";
   modal.style.display = "block";
-
+  $main.attr('aria-hidden', 'true')
+  modal.attr('aria-hidden', 'false')
+  $body.addClass('no-scroll')
+  modal.css('display', 'flex')
+  $fermer.focus()
 }
 function closeModal() {
   modalbg.style.display = "none"; 
@@ -62,4 +66,11 @@ form.addEventListener("submit", (e) => {
   
   
 });
+
+$(document).on('keydown', e => {
+  const keyCode = e.keyCode ? e.keyCode : e.which
+
+  if (modal.attr('aria-hidden') == 'false' && keyCode === 27) {closeModal()
+  }
+})
 

@@ -186,9 +186,9 @@ croixFermer.forEach((btn) => btn.addEventListener("click", closeLightbox)); // F
  
 // Modal form
 function launchLighbox () {  
-    lightbox.style.display = "block";
+  lightbox.style.display = "block";
+   }
  
-}
 function closeLightbox() {
   lightbox.style.display = "none"; 
 }
@@ -220,19 +220,19 @@ function galleryCarrousel(id, type, media, alt, title) {
         lightbox.insertAdjacentHTML("beforeend", LightboxContenu);
 }
 
-function flecheGauche (index) {
+
+function flecheGauche (mediasPhotographe) {
   const totalMedias = document.querySelectorAll.photosLightbox.length;
   console.log(photosLightbox.length)
-  precedente.forEach((flecheG)=>flecheG.addEventListener ("click", changeLeft(totalMedias), [index-1]));
+  precedente.forEach((flecheG)=>flecheG.addEventListener ("click", changeLeft(totalMedias), [mediasPhotographe-1]));
 }
 
-function flecheDroite (index) {
+function flecheDroite (mediasPhotographe) {
   const totalMedias = document.querySelectorAll.photosLightbox.length;
-  suivante.forEach((flecheD)=>flecheD.addEventListener ("click", changeRight(totalMedias), [index+1]));
+  suivante.forEach((flecheD)=>flecheD.addEventListener ("click", changeRight(totalMedias), [mediasPhotographe+1]));
 }
 
 
+// Nav Clavier
 
- 
-
- 
+// Close modal avec clavier
