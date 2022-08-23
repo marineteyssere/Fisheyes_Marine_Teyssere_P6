@@ -50,9 +50,9 @@ function headerFactory(photographe) {
     return ` 
       <div class="photograph-header">
             <div class="text-header">
-              <h2  aria-label="Nom du photographe" id="nameModal">${name}</h2>
-              <h3  aria-label="Pays du photographe" tabindex="0">${city}, ${country}</h3>
-              <h4  aria-label="Phrase du photographe" tabindex="0">${tagline}</h4>
+              <h2  aria-label="Nom du photographe" id="nameModal" tabindex="-1">${name}</h2>
+              <h3  aria-label="Pays du photographe" tabindex="-1">${city}, ${country}</h3>
+              <h4  aria-label="Phrase du photographe" tabindex="-1">${tagline}</h4>
             </div>
  
           <img href=${url} src=${image} alt="${alt}" class="imagePhotographProfil" />
@@ -89,7 +89,7 @@ function galleryFactory(data) {
             ${mediasPhotographe}
             <div class="titreLike">
                 <h3 aria-label="Titre du média" class="titreMedia">${title}</h3>
-                <span aria-label="Nombre like du média" class="nombreLike">${likes} <i class="fa-solid fa-heart"></i> </span>
+                <span aria-label="Nombre like du média" class="nombreLike">${likes} <i class="fa-solid fa-heart" tabindex="0"></i> </span>
             </div>
         </a>
     </div>

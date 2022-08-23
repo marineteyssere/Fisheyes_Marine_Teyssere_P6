@@ -14,6 +14,7 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", alt );
+        //img.setAttribute('tabindex="0"')
         //img.getAttribute("id", lien);
         img.onclick= function (){document.location=`${html}?photographer=${id}`}
         
