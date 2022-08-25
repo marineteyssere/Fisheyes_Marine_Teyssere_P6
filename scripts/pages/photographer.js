@@ -32,7 +32,7 @@ function successPage(photographers, media, photographerId) {
  
   displayDataHeader(photographer); //affichage du header du photographe
   displayMedias(medias); //affiches les medias
-  
+ 
 }
  
  
@@ -67,7 +67,7 @@ function headerFactory(photographe) {
 /****     elements DOM partie GALERIES    **********/
  
 function galleryFactory(data) {
-  const { id, image, title, video, likes, date, alt, } = data;
+  let { id, image, title, video, likes, date, alt, } = data;
  // console.log(data);
   let mediasPhotographe;
   let media;
@@ -81,11 +81,11 @@ function galleryFactory(data) {
     media = video;
     mediaType = "video";
 }
+    alt = alt.replace("'", "`");
   return `
- 
-  <article class="article_media" data-title="${title}" data-date=${date} data-likes="${likes}" >
+  <article class="article_media" id="${id}" data-alt="${alt}" data-type="${mediaType}" data-media="${media}" data-title="${title}" data-date=${date} data-likes="${likes}" onclick='galleryCarrousel("${id}", "${mediaType}", "${media}", "${alt}", "${title}")'>
     <div class="grillePhotosProfil_main">
-        <a href="#" class= "media" id="${id}" aria-label="ouvrir la media" onclick="galleryCarrousel('${id}', '${mediaType}', '${media}', '${alt}', '${title}')">
+        <a href="#" class= "media" aria-label="ouvrir la media">
             ${mediasPhotographe}
             <div class="titreLike">
                 <h3 aria-label="Titre du média" class="titreMedia">${title}</h3>
@@ -178,25 +178,31 @@ const suivante = document.querySelectorAll(".droite");
 const precedente = document.querySelectorAll(".gauche");
 const titre = document.querySelectorAll(".titre-media");
 const croixFermer = document.querySelectorAll(".fermer"); // Fermer la modale
-const photosLightbox = document.querySelectorAll(".article_media");
+const mediaLightbox = document.querySelectorAll(".article_media");
 // Fermer
  
-photosLightbox.forEach(() => addEventListener("click", launchLighbox));
+mediaLightbox.forEach(() => addEventListener("click", launchLighbox));
 croixFermer.forEach((btn) => btn.addEventListener("click", closeLightbox)); // Fermer la modale
+ 
  
 // Modal form
 function launchLighbox () {  
-  lightbox.style.display = "block";
-   }
+    lightbox.style.display = "block";
+}
  
 function closeLightbox() {
-  lightbox.style.display = "none"; 
+    lightbox.style.display = "none"; 
+    document.querySelectorAll(".lightbox-media").forEach(Lmedia => {
+        Lmedia.remove();
+    });
 }
  
  
 function galleryCarrousel(id, type, media, alt, title) {
+    document.querySelectorAll(".lightbox-media").forEach(Lmedia => {
+        Lmedia.remove();
+    });
     launchLighbox();
-    console.log(title)
  
     // console.log(dataCarrousel);
     let mediasCarrousel;
@@ -207,32 +213,61 @@ function galleryCarrousel(id, type, media, alt, title) {
         mediasCarrousel = `<img src="assets/images/${media}" alt="${alt}"  data-media="${id}">`;    
     }
  
+    const totalMedias = document.querySelectorAll(".article_media");
+    const firstChildTitle = document.querySelectorAll(".article_media")[0].getAttribute("data-title");
+    const lastChildTitle = document.querySelectorAll(".article_media")[totalMedias.length - 1].getAttribute("data-title");
+ 
+    var index = (Array.prototype.indexOf.call(document.getElementById(id).parentNode.children, document.getElementById(id)) + 1);
+ 
+    let flecheGauche;
+    if(title === firstChildTitle) {
+        flecheGauche = "";
+    } else {
+        flecheGauche = `<i class="fa-solid fa-angle-left gauche" id="fleche-gauche" aria-label="Image précédente" onclick="flecheGauche(${index - 2})" ></i>`;
+    }
+ 
+    let flecheDroite;
+    if(title === lastChildTitle) {
+        flecheDroite = "";
+    } else {
+        flecheDroite = `<i class="fa-solid fa-angle-right droite" id="fleche-droite" aria-label="Image suivante" onclick="flecheDroite(${index})"></i>`;
+    }
  
     const LightboxContenu = `
         <div class="lightbox-media" id="${id}" >
             ${mediasCarrousel}
-            <i class="fa-solid fa-angle-right droite" aria-label="Image suivante" onclick="flecheDroite"></i> 
-            <i class="fa-solid fa-angle-left gauche" aria-label="Image précédente" onclick="flecheGauche" ></i>
+            ${flecheGauche}
+            ${flecheDroite} 
             <title class="titre-media">${title}</title>
-            <button class="fermer" aria-label="Fermer le carousel" onclick="closeLightbox('lightbox-background')">x</button>
+            <button class="fermer" aria-label="Fermer le carousel" onclick="closeLightbox()">x</button>
         </div>`;
  
-        lightbox.insertAdjacentHTML("beforeend", LightboxContenu);
+ 
+    lightbox.insertAdjacentHTML("beforeend", LightboxContenu);
 }
-
-
-function flecheGauche (mediasPhotographe) {
-  const totalMedias = document.querySelectorAll.photosLightbox.length;
-  console.log(photosLightbox.length)
-  precedente.forEach((flecheG)=>flecheG.addEventListener ("click", changeLeft(totalMedias), [mediasPhotographe-1]));
+ 
+ 
+function flecheGauche (currentIndex) {
+    const prevMedia = document.querySelectorAll(".article_media")[currentIndex];
+    const prevMediaID = prevMedia.getAttribute("id");
+    const prevMediaType = prevMedia.getAttribute("data-type");
+    const prevMediaMedia = prevMedia.getAttribute("data-media");
+    const prevMediaAlt = prevMedia.getAttribute("data-alt");
+    const prevMediaTitle = prevMedia.getAttribute("data-title");
+    galleryCarrousel(prevMediaID, prevMediaType, prevMediaMedia, prevMediaAlt, prevMediaTitle);
 }
-
-function flecheDroite (mediasPhotographe) {
-  const totalMedias = document.querySelectorAll.photosLightbox.length;
-  suivante.forEach((flecheD)=>flecheD.addEventListener ("click", changeRight(totalMedias), [mediasPhotographe+1]));
+ 
+function flecheDroite (currentIndex) {
+    const nextMedia = document.querySelectorAll(".article_media")[currentIndex];
+    const nextMediaID = nextMedia.getAttribute("id");
+    const nextMediaType = nextMedia.getAttribute("data-type");
+    const nextMediaMedia = nextMedia.getAttribute("data-media");
+    const nextMediaAlt = nextMedia.getAttribute("data-alt");
+    const nextMediaTitle = nextMedia.getAttribute("data-title");
+    galleryCarrousel(nextMediaID, nextMediaType, nextMediaMedia, nextMediaAlt, nextMediaTitle);
 }
-
-
+ 
+ 
 // Nav Clavier
-
+ 
 // Close modal avec clavier
