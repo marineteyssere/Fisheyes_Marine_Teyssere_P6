@@ -12,41 +12,12 @@
         <header>
             <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Photo profil du photographe" aria-label="Logo bouton retour acceuil"></a>
         </header>
-        <main id="main">
+        <main id="main" class="document">
             <div class="photograph-header"></div>
-            <!--formulaire -->
-            <button class="contact_button" id="modal" role=”dialog” aria-label="Ouvre formulaire de contact" aria-describedby="Formulaire de contact">Contactez moi</button>
-            <form action="/" method="POST" id="formulaire">
-                <div class="bground">
-                    <div class="modal">
-                        <div class="content">
-                            <img src="assets/icons/close.svg" onclick="closeModal('modal')" class="close" aria-label="Fermer formulaire" />
-                            <legend class="titreModal">
-                                Contactez-moi
-                            </legend>
-                            <br>
-                            <div class="form-data">
-                                <label for="firstName">Prénom</label>
-                                <input id="firstName" tabindex="0" type="text" name="first" aria-labelledby="firstName" aria-hidden="true"pattern="^\D*$" required aria-label="Saisie prénom">
-                            </div>
-                            <div class="form-data">
-                                <label for="lastName">Nom</label>
-                                <input id="lastName" tabindex="0" type="text" name="last" aria-labelledby="lastName" aria-hidden="true"pattern="^\D*$" required aria-label="Saisie nom">
-                            </div>
-                            <div class="form-data email">
-                                <label for="email">Email</label>
-                                <input id="email" tabindex="0" type="email" name="email" aria-labelledby="email" aria-hidden="true"required aria-label=" Saisie email">
-                            </div>
-                            <div class="form-data">
-                                <label for="message">Message</label>
-                                <textarea id="message" tabindex="0" name="message" aria-labelledby="message" aria-hidden="true"required aria-label="Message"></textarea>
-                            </div>
-                            <button type="submit" tabindex="0" name="submit" aria-label="envoyer" id="send"class="buttonModal" aria-label="Envoyer formulaire">Envoyer</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!--fin formulaire-->
+
+            <!--bouton formulaire -->
+            <button class="contact_button" id="modal"  aria-label="Ouvre formulaire de contact"  aria-haspopup="dialog" aria-controls="dialog">Contactez moi</button>
+            
             <!-- SECTION FILTRES/  SORT -->
             <div role="search" aria-hidden="false" class="sort" aria-label="Menu pour trier photos" aria-describedby="Menu pour trier photos">
                 <label for="sort-choice"></label>
@@ -66,7 +37,14 @@
  
  
 			<!-- CAROUSEL  LIGHTBOX    -->
-            <section id="lightbox" class="lightbox-background" aria-label="Carousel des images" role=”dialog” aria-describedby="Carrousel des images"></section>
+            <section id="lightbox" 
+            class="lightbox-background" 
+            aria-label="Carousel des images" 
+            role=”dialog” 
+            aria-describedby="Carrousel des images" 
+            aria-modal="true"
+            aria-hidden="true"
+            tabindex="-1"></section>
  
  
             <!--BANNIERE LIKE-->
@@ -77,6 +55,40 @@
                 </div>
             </section>
         </main>
+
+        <!--formulaire-->
+        <form action="/" method="POST" id="dialog"  aria-modal="true" role=”dialog” aria-describedby="Formulaire de contact" aria-hidden="true" tabindex="-1" >
+            <div class="bground">
+                <div class="modal">
+                    <div class="content">
+                        <img src="assets/icons/close.svg" onclick="closeModal('modal')" class="close" aria-label="Fermer formulaire" type="button" 
+                        aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog" tabindex="1" />
+                        <legend class="titreModal">
+                            Contactez-moi
+                        </legend>
+                        <br>
+                        <div class="form-data">
+                            <label for="firstName">Prénom</label>
+                            <input id="firstName" tabindex="0" type="text" name="first" aria-labelledby="firstName" aria-hidden="true"pattern="^\D*$" required aria-label="Saisie prénom">
+                        </div>
+                        <div class="form-data">
+                            <label for="lastName">Nom</label>
+                            <input id="lastName" tabindex="0" type="text" name="last" aria-labelledby="lastName" aria-hidden="true"pattern="^\D*$" required aria-label="Saisie nom">
+                        </div>
+                        <div class="form-data email">
+                            <label for="email">Email</label>
+                            <input id="email" tabindex="0" type="email" name="email" aria-labelledby="email" aria-hidden="true"required aria-label=" Saisie email">
+                        </div>
+                        <div class="form-data">
+                            <label for="message">Message</label>
+                            <textarea id="message" tabindex="0" name="message" aria-labelledby="message" aria-hidden="true"required aria-label="Message"></textarea>
+                        </div>
+                        <button type="submit" tabindex="0" name="submit" aria-label="envoyer" id="send"class="buttonModal" aria-label="Envoyer formulaire">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--fin formulaire-->
         <script src="./scripts/utils/contactForm.js"></script>
         <script src="./scripts/pages/photographer.js"></script>
     </body>

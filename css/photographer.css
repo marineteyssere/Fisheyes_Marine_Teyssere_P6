@@ -110,11 +110,11 @@ a .logo:focus {
     object-position: 50% 17%;
 }
 .titreMedia {
-    white-space: nowrap;
     text-overflow: ellipsis;
     width: 14rem;
     color: #901C1C;
     text-align: left;
+    line-height: initial;
 }
 .video_main {
     width: 340px;
@@ -134,7 +134,6 @@ a .logo:focus {
 */
 /* Titre et like des photos */
 .nombreLike {
-    color: #901C1C;
     margin-left: 55px;
     font-size: 1.25rem;
     cursor: pointer;
@@ -151,6 +150,15 @@ i {
     flex-direction: row;
     align-items: baseline;
 }
+ 
+.like {
+    color: rgba(197, 69, 135, 0.8);
+}
+ 
+.likedHeart {
+    color: violet;
+}
+ 
 /* Début menu déroulant */
 .menuTrier {
     position: relative;

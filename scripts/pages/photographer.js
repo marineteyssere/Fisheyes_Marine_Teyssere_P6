@@ -83,13 +83,17 @@ function galleryFactory(data) {
 }
     alt = alt.replace("'", "`");
   return `
-  <article class="article_media" id="${id}" data-alt="${alt}" data-type="${mediaType}" data-media="${media}" data-title="${title}" data-date=${date} data-likes="${likes}" onclick='galleryCarrousel("${id}", "${mediaType}", "${media}", "${alt}", "${title}")'>
+  <article class="article_media" id="${id}" data-alt="${alt}" data-type="${mediaType}" data-media="${media}" data-title="${title}" data-date=${date} data-likes="${likes}">
     <div class="grillePhotosProfil_main">
-        <a href="#" class= "media" aria-label="ouvrir la media">
-            ${mediasPhotographe}
+        <a href="#${id}" class= "media" aria-label="ouvrir la media">
+            <div onclick='galleryCarrousel("${id}", "${mediaType}", "${media}", "${alt}", "${title}")'>
+                ${mediasPhotographe}
+            </div>
             <div class="titreLike">
                 <h3 aria-label="Titre du média" class="titreMedia">${title}</h3>
-                <span aria-label="Nombre like du média" class="nombreLike">${likes} <i class="fa-solid fa-heart" tabindex="0"></i> </span>
+                <span aria-label="Nombre like du média" class="nombreLike">
+                <span id="${id}-likes">${likes}</span>
+                <i class="fa-solid fa-heart" id="${id}-heart" onclick="like(${id})" tabindex="0"></i> </span>
             </div>
         </a>
     </div>
@@ -102,6 +106,31 @@ function displayDataHeader(photographer) {
   document.querySelector(".photograph-header").innerHTML = profilHeaderModel.getHeaderCardDOM();
   document.getElementById("nameModal").innerHTML = photographer.name;
   document.getElementById("photographerPrice").innerHTML = photographer.price + '€ / jour';
+}
+ 
+/** Coeur **/
+function like(id) {
+    const currentMedia = document.getElementById(id);
+    const currentMediaLikes = document.getElementById(`${id}-likes`);
+    const currentMediaHeart = document.getElementById(`${id}-heart`);
+    const nbLike = parseInt(currentMedia.getAttribute("data-likes"));
+    const totalLike = document.getElementById("totalLike");
+ 
+    let newLike = nbLike;
+ 
+    if(currentMedia.classList.contains("liked")) {
+        newLike = nbLike - 1;
+        currentMedia.classList.remove("liked");
+        currentMediaHeart.classList.remove("likedHeart");
+        totalLike.innerText = parseInt(totalLike.innerText) - 1;
+    } else {
+        newLike = nbLike + 1;
+        currentMedia.classList.add("liked");
+        currentMediaHeart.classList.add("likedHeart");
+        totalLike.innerText = parseInt(totalLike.innerText) + 1;
+    }
+    currentMedia.setAttribute("data-likes", newLike);
+    currentMediaLikes.innerText = newLike;
 }
  
 /*********** Affichage  des medias de l ID *******************************/
@@ -179,7 +208,7 @@ const precedente = document.querySelectorAll(".gauche");
 const titre = document.querySelectorAll(".titre-media");
 const croixFermer = document.querySelectorAll(".fermer"); // Fermer la modale
 const mediaLightbox = document.querySelectorAll(".article_media");
-// Fermer
+
  
 mediaLightbox.forEach(() => addEventListener("click", launchLighbox));
 croixFermer.forEach((btn) => btn.addEventListener("click", closeLightbox)); // Fermer la modale
@@ -271,3 +300,4 @@ function flecheDroite (currentIndex) {
 // Nav Clavier
  
 // Close modal avec clavier
+ 
