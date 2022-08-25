@@ -15,9 +15,10 @@ function launchModal() {
   modal.style.display = "block";
   $main.attr('aria-hidden', 'true')
   modal.attr('aria-hidden', 'false')
-  $body.addClass('no-scroll')
+  $body.addClass('no-scroll','hidden')
   modal.css('display', 'flex')
-  $fermer.focus()
+  closebtn.focus()
+  document.getElementsByTagName("body")[0].style.overflow = "hidden";
 }
 function closeModal() {
   modalbg.style.display = "none"; 

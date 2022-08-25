@@ -2,6 +2,7 @@
 
 function photographerFactory(data) {
     const { name, portrait, country, city, tagline, price, alt, id } = data;
+    
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -14,9 +15,9 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", alt );
-        //img.setAttribute('tabindex="0"')
-        //img.getAttribute("id", lien);
+       // img.getAttribute("id", lien);
         img.onclick= function (){document.location=`${html}?photographer=${id}`}
+        //img.querySelector("img").focus();
         
 
         const nom = document.createElement( 'h2' );
@@ -36,6 +37,7 @@ function photographerFactory(data) {
         article.appendChild(pays);
         article.appendChild(citation);
         article.appendChild(prix);
+        
 
         return (article);
     }
