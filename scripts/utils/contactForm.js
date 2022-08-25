@@ -1,3 +1,4 @@
+
 // DOM Elements
 const modal = document.querySelector(".modal");
 const modalbg = document.querySelector(".bground");
@@ -16,12 +17,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closebtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Fermer la modale
 
 
-document.body.addEventListener('keypress', function(e) {
-  if (e.key == "Escape") {
-    alert("test");
-    close(modal, modalbg);
-  }
-});
+
 
 
 // launch modal form
@@ -78,6 +74,14 @@ form.addEventListener("submit", (e) => {
   document.getElementById("formulaire").style.display = "none";
   
   
+});
+
+
+document.body.addEventListener('keypress', function(e) {
+  if (e.key == "Escape") {
+    alert("test");
+    close(modal, modalbg);
+  }
 });
 
 

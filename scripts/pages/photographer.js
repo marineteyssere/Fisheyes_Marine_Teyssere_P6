@@ -261,6 +261,14 @@ function galleryCarrousel(id, type, media, alt, title) {
     } else {
         flecheDroite = `<i class="fa-solid fa-angle-right droite" id="fleche-droite" aria-label="Image suivante" onclick="flecheDroite(${index})"></i>`;
     }
+
+    document.onkeydown = function (event) {
+      if(event.key === "ArrowRight") {
+        flecheDroite(index);
+      } else if(event.key === "ArrowLeft") {
+        flecheGauche(index-2);
+      }
+     }; 
  
     const LightboxContenu = `
         <div class="lightbox-media" id="${id}" >
