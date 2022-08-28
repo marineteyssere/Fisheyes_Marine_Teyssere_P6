@@ -7,10 +7,6 @@ const formData = document.querySelectorAll(".formData");
 const closebtn = document.querySelectorAll(".close"); 
 const triggers = document.querySelectorAll('[aria-haspopup="dialog"]');
 const doc = document.querySelector('.document');
-const keyCodes = {
-  enter: 13,
-  escape: 27,
-};
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -77,11 +73,7 @@ form.addEventListener("submit", (e) => {
 });
 
 
-document.body.addEventListener('keypress', function(e) {
-  if (e.key == "Escape") {
-    alert("test");
-    close(modal, modalbg);
-  }
-});
+
+
 
 

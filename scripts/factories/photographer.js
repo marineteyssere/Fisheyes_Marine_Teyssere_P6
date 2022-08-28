@@ -15,9 +15,9 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", alt );
-       // img.getAttribute("id", lien);
         img.onclick= function (){document.location=`${html}?photographer=${id}`}
-        //img.querySelector("img").focus();
+        img.setAttribute("tabindex", 1);
+        
         
 
         const nom = document.createElement( 'h2' );

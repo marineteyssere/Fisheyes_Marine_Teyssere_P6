@@ -304,6 +304,11 @@ function flecheDroite (currentIndex) {
     galleryCarrousel(nextMediaID, nextMediaType, nextMediaMedia, nextMediaAlt, nextMediaTitle);
 }
  
+document.onkeydown = function (event) {
+  if(e.key === "Escape") {
+    closeLightbox();
+  }
+};
  
 // Nav Clavier
  
