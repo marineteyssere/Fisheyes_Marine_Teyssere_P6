@@ -137,6 +137,7 @@ a .logo:focus {
     margin-left: 55px;
     font-size: 1.25rem;
     cursor: pointer;
+    color: #901C1C;
 }
 i {
     font-family: "Font Awesome 5 Free";
@@ -144,6 +145,7 @@ i {
     font-size: 1.25rem;
     cursor: pointer;
     font-style: normal;
+    color: #901C1C;
 }
 .titreLike {
     display: flex;
@@ -151,9 +153,6 @@ i {
     align-items: baseline;
 }
  
-.like {
-    color: rgba(197, 69, 135, 0.8);
-}
  
 .likedHeart {
     color: violet;

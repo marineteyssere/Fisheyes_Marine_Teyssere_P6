@@ -10,10 +10,12 @@ const doc = document.querySelector('.document');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-closebtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Fermer la modale
+closebtn.forEach((btn) => btn.addEventListener("click", closeModal));
 
-
-
+document.onkeydown = function (event) {
+   (event.key === "Escape") 
+    closeModal(); 
+ }; 
 
 
 // launch modal form

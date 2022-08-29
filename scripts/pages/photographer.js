@@ -233,7 +233,6 @@ function galleryCarrousel(id, type, media, alt, title) {
     });
     launchLighbox();
  
-    // console.log(dataCarrousel);
     let mediasCarrousel;
  
     if(type === "video") {
