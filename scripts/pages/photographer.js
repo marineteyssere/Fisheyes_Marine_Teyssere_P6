@@ -252,21 +252,23 @@ function galleryCarrousel(id, type, media, alt, title) {
     if(title === firstChildTitle) {
         flecheGauche = "";
     } else {
-        flecheGauche = `<i class="fa-solid fa-angle-left gauche" id="fleche-gauche" aria-label="Image précédente" onclick="flecheGauche(${index - 2})" ></i>`;
+        flecheGauche = `<i class="fa-solid fa-angle-left gauche" id="fleche-gauche" aria-label="Image précédente" onclick="flecheGaucheLightbox(${index - 2})" ></i>`;
     }
  
     let flecheDroite;
     if(title === lastChildTitle) {
         flecheDroite = "";
     } else {
-        flecheDroite = `<i class="fa-solid fa-angle-right droite" id="fleche-droite" aria-label="Image suivante" onclick="flecheDroite(${index})"></i>`;
+        flecheDroite = `<i class="fa-solid fa-angle-right droite" id="fleche-droite" aria-label="Image suivante" onclick="flecheDroiteLightbox(${index})"></i>`;
     }
 
     document.onkeydown = function (event) {
       if(event.key === "ArrowRight") {
-        flecheDroite(index);
+        flecheDroiteLightbox(index);
       } else if(event.key === "ArrowLeft") {
-        flecheGauche(index-2);
+        flecheGaucheLightbox(index-2);
+      } else if (event.key === "Escape") {
+        closeLightbox();
       }
      }; 
  
@@ -284,7 +286,7 @@ function galleryCarrousel(id, type, media, alt, title) {
 }
  
  
-function flecheGauche (currentIndex) {
+function flecheGaucheLightbox (currentIndex) {
     const prevMedia = document.querySelectorAll(".article_media")[currentIndex];
     const prevMediaID = prevMedia.getAttribute("id");
     const prevMediaType = prevMedia.getAttribute("data-type");
@@ -294,7 +296,7 @@ function flecheGauche (currentIndex) {
     galleryCarrousel(prevMediaID, prevMediaType, prevMediaMedia, prevMediaAlt, prevMediaTitle);
 }
  
-function flecheDroite (currentIndex) {
+function flecheDroiteLightbox (currentIndex) {
     const nextMedia = document.querySelectorAll(".article_media")[currentIndex];
     const nextMediaID = nextMedia.getAttribute("id");
     const nextMediaType = nextMedia.getAttribute("data-type");
@@ -303,14 +305,4 @@ function flecheDroite (currentIndex) {
     const nextMediaTitle = nextMedia.getAttribute("data-title");
     galleryCarrousel(nextMediaID, nextMediaType, nextMediaMedia, nextMediaAlt, nextMediaTitle);
 }
- 
-document.onkeydown = function (event) {
-  if(e.key === "Escape") {
-    closeLightbox();
-  }
-};
- 
-// Nav Clavier
- 
-// Close modal avec clavier
  
