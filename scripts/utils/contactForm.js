@@ -5,6 +5,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".contact_button");
 const formData = document.querySelectorAll(".formData");
 const closebtn = document.querySelectorAll(".close"); 
+const closeBtnclavier = document.querySelector(".close"); 
 const triggers = document.querySelectorAll('[aria-haspopup="dialog"]');
 const doc = document.querySelector('.document');
 
@@ -12,11 +13,16 @@ const doc = document.querySelector('.document');
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closebtn.forEach((btn) => btn.addEventListener("click", closeModal));
 
+// Clavier
 modalbg.onkeydown = function (event) {
    if (event.key === "Escape") 
     closeModal()
  }; 
 
+ closeBtnclavier.onkeydown = function (event) {
+  if (event.key === "Enter") 
+   closeModal()
+}; 
 
 // launch modal form
 function launchModal() {

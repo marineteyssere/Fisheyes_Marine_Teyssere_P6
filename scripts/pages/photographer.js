@@ -208,6 +208,7 @@ const precedente = document.querySelectorAll(".gauche");
 const titre = document.querySelectorAll(".titre-media");
 const croixFermer = document.querySelectorAll(".fermer"); // Fermer la modale
 const mediaLightbox = document.querySelectorAll(".article_media");
+const mediaClavier = document.querySelector(".article_media");
 
  
 mediaLightbox.forEach(() => addEventListener("click", launchLighbox));
@@ -219,16 +220,11 @@ function launchLighbox () {
     lightbox.style.display = "block";
 }
 
-/*mediaLightbox.onkeydown = function (event) {
+/*mediaClavier.onkeydown = function (event) {
   if (event.key === "Enter") 
    launchLighbox(); 
 }; */
 
-/*
- mediaLightbox.addEventListener("keypress", function(event) {
- if (event.key === "Enter") 
-   launchLighbox(); 
-}); */
  
 function closeLightbox() {
     lightbox.style.display = "none"; 
@@ -272,6 +268,7 @@ function galleryCarrousel(id, type, media, alt, title) {
         flecheDroite = `<i class="fa-solid fa-angle-right droite" id="fleche-droite" aria-label="Image suivante" onclick="flecheDroiteLightbox(${index})"></i>`;
     }
 
+    // Clavier 
     document.onkeydown = function (event) {
       if(event.key === "ArrowRight") {
         flecheDroiteLightbox(index);
@@ -281,6 +278,7 @@ function galleryCarrousel(id, type, media, alt, title) {
         closeLightbox();
       }
      }; 
+     
  
     const LightboxContenu = `
         <div class="lightbox-media" id="${id}" >

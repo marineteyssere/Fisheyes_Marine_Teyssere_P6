@@ -17,8 +17,10 @@ function photographerFactory(data) {
         img.setAttribute("alt", alt );
         img.onclick= function (){document.location=`${html}?photographer=${id}`}
         img.setAttribute("tabindex", 1);
-        
-        
+        img.onkeydown = function (event) {
+            if (event.key === "Enter") 
+            {document.location=`${html}?photographer=${id}`}
+          }; 
 
         const nom = document.createElement( 'h2' );
         nom.textContent = name;
