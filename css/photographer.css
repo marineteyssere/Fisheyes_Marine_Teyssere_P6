@@ -122,16 +122,7 @@ a .logo:focus {
     object-fit: cover;
     border-radius: 5px;
 }
-/*.grillePhotosProfil_main article {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2%;
-}
-.imagePhotographProfil_main {
-    height: 220px;
-    width: 220px;
-}
-*/
+
 /* Titre et like des photos */
 .nombreLike {
     margin-left: 55px;

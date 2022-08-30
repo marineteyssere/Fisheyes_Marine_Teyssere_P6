@@ -68,7 +68,6 @@ function headerFactory(photographe) {
  
 function galleryFactory(data) {
   let { id, image, title, video, likes, date, alt, } = data;
- // console.log(data);
   let mediasPhotographe;
   let media;
   let mediaType;
@@ -135,7 +134,6 @@ function like(id) {
  
 /*********** Affichage  des medias de l ID *******************************/
 function displayMedias(medias) {
-  // console.log(medias);
   let totalLike = 0;
   // On recreer chaque card Html stocker dans enregistrementDom
   const enregistrementDom = medias.map((media) => {
