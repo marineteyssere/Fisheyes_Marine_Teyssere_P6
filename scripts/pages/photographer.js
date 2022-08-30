@@ -85,7 +85,7 @@ function galleryFactory(data) {
   return `
   <article class="article_media" id="${id}" data-alt="${alt}" data-type="${mediaType}" data-media="${media}" data-title="${title}" data-date=${date} data-likes="${likes}">
     <div class="grillePhotosProfil_main">
-        <a href="#${id}" class= "media" aria-label="ouvrir la media">
+        <a href="#${id}" class= "media" aria-label="ouvrir la media" >
             <div onclick='galleryCarrousel("${id}", "${mediaType}", "${media}", "${alt}", "${title}")'>
                 ${mediasPhotographe}
             </div>
@@ -218,6 +218,17 @@ croixFermer.forEach((btn) => btn.addEventListener("click", closeLightbox)); // F
 function launchLighbox () {  
     lightbox.style.display = "block";
 }
+
+/*mediaLightbox.onkeydown = function (event) {
+  if (event.key === "Enter") 
+   launchLighbox(); 
+}; */
+
+/*
+ mediaLightbox.addEventListener("keypress", function(event) {
+ if (event.key === "Enter") 
+   launchLighbox(); 
+}); */
  
 function closeLightbox() {
     lightbox.style.display = "none"; 

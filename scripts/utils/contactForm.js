@@ -12,9 +12,9 @@ const doc = document.querySelector('.document');
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closebtn.forEach((btn) => btn.addEventListener("click", closeModal));
 
-document.onkeydown = function (event) {
-   (event.key === "Escape") 
-    closeModal(); 
+modalbg.onkeydown = function (event) {
+   if (event.key === "Escape") 
+    closeModal()
  }; 
 
 
