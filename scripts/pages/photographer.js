@@ -206,7 +206,7 @@ const precedente = document.querySelectorAll(".gauche");
 const titre = document.querySelectorAll(".titre-media");
 const croixFermer = document.querySelectorAll(".fermer"); // Fermer la modale
 const mediaLightbox = document.querySelectorAll(".article_media");
-const mediaClavier = document.querySelector(".article_media");
+const mediaClavier = document.querySelector(".grillePhotosProfil_main");
 
  
 mediaLightbox.forEach(() => addEventListener("click", launchLighbox));
@@ -218,10 +218,10 @@ function launchLighbox () {
     lightbox.style.display = "block";
 }
 
-/*mediaClavier.onkeydown = function (event) {
+mediaClavier.onkeydown = function (event) {
   if (event.key === "Enter") 
-   launchLighbox(); 
-}; */
+   launchLighbox()
+}; 
 
  
 function closeLightbox() {
