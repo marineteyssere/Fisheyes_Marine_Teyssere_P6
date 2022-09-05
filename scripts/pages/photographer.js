@@ -59,16 +59,16 @@ function headerFactory(photographe) {
     function getHeaderCardDOM() {
         const linkURL = "photographer.html";
         const url = `${linkURL}?photographer=${id}`;
-        return ` 
+        return `
       <div class="photograph-header">
             <div class="text-header">
               <h2  aria-label="Nom du photographe" id="nameModal" tabindex="-1">${name}</h2>
               <h3  aria-label="Pays du photographe" tabindex="-1">${city}, ${country}</h3>
               <h4  aria-label="Phrase du photographe" tabindex="-1">${tagline}</h4>
             </div>
- 
+
           <img href=${url} src=${image} alt="${alt}" class="imagePhotographProfil" />
- 
+
       </div>`;
     }
 
@@ -297,7 +297,7 @@ function galleryCarrousel(id, type, media, alt, title) {
         <div class="lightbox-media" id="${id}" >
             ${mediasCarrousel}
             ${flecheGauche}
-            ${flecheDroite} 
+            ${flecheDroite}
             <title class="titre-media">${title}</title>
             <button class="fermer" aria-label="Fermer le carousel" onclick="closeLightbox()">x</button>
         </div>`;
