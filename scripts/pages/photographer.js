@@ -108,17 +108,19 @@ function galleryFactory(data) {
     }
     alt = alt.replace("'", "`");
     return `
-  <article class="article_media" id="${id}" data-alt="${alt}" data-type="${mediaType}" data-media="${media}" data-title="${title}" data-date=${date} data-likes="${likes}" onclick='galleryCarrousel("${id}", "${mediaType}", "${media}", "${alt}", "${title}")'>
+  <article class="article_media" id="${id}" data-alt="${alt}" data-type="${mediaType}" data-media="${media}" data-title="${title}" data-date=${date} data-likes="${likes}">
     <div class="grillePhotosProfil_main">
-        <a href="#" class= "media" aria-label="ouvrir la media">
-            ${mediasPhotographe}
+        <div>
+            <a href="#" class="media media-click" aria-label="ouvrir la media" onclick='galleryCarrousel("${id}", "${mediaType}", "${media}", "${alt}", "${title}")'>
+                ${mediasPhotographe}
+            </a>
             <div class="titreLike">
                 <h3 aria-label="Titre du média" class="titreMedia">${title}</h3>
                 <span aria-label="Nombre like du média" class="nombreLike">
                 <span id="${id}-likes">${likes}</span>
                 <i class="fa-solid fa-heart" id="${id}-heart" onclick="like(${id})" tabindex="0"></i> </span>
             </div>
-        </a>
+        </div>
     </div>
   </article>`
 }
@@ -235,12 +237,6 @@ croixFermer.forEach((btn) => btn.addEventListener("click", closeLightbox)); // F
 function launchLighbox() {
     lightbox.style.display = "block";
 }
-
-mediaClavier.onkeydown = function(mediasCarrousel) {
-    if (mediasCarrousel.key === "Enter")
-        launchLighbox()
-};
-
 
 function closeLightbox() {
     lightbox.style.display = "none";
