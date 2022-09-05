@@ -36,7 +36,9 @@ function successPage(photographers, media, photographerId) {
 
     displayDataHeader(photographer); //affichage du header du photographe
     displayMedias(medias); //affiches les medias
+
 }
+
 
 /****************   Header Photographes *************************/
 
@@ -79,7 +81,7 @@ function headerFactory(photographe) {
 }
 
 
-/****     Elements DOM partie GALERIES Photos & Vidéos   **********/
+/********     Elements DOM partie GALERIES Photos & Vidéos   **********/
 
 function galleryFactory(data) {
     let {
@@ -91,6 +93,7 @@ function galleryFactory(data) {
         date,
         alt,
     } = data;
+    // console.log(data);
     let mediasPhotographe;
     let media;
     let mediaType;
@@ -105,12 +108,10 @@ function galleryFactory(data) {
     }
     alt = alt.replace("'", "`");
     return `
-  <article class="article_media" id="${id}" data-alt="${alt}" data-type="${mediaType}" data-media="${media}" data-title="${title}" data-date=${date} data-likes="${likes}">
+  <article class="article_media" id="${id}" data-alt="${alt}" data-type="${mediaType}" data-media="${media}" data-title="${title}" data-date=${date} data-likes="${likes}" onclick='galleryCarrousel("${id}", "${mediaType}", "${media}", "${alt}", "${title}")'>
     <div class="grillePhotosProfil_main">
-        <a href="#${id}" class= "media" aria-label="ouvrir la media" >
-            <div onclick='galleryCarrousel("${id}", "${mediaType}", "${media}", "${alt}", "${title}")'>
-                ${mediasPhotographe}
-            </div>
+        <a href="#" class= "media" aria-label="ouvrir la media">
+            ${mediasPhotographe}
             <div class="titreLike">
                 <h3 aria-label="Titre du média" class="titreMedia">${title}</h3>
                 <span aria-label="Nombre like du média" class="nombreLike">
@@ -127,21 +128,21 @@ function displayDataHeader(photographer) {
     const profilHeaderModel = headerFactory(photographer);
     document.querySelector(".photograph-header").innerHTML = profilHeaderModel.getHeaderCardDOM();
     document.getElementById("nameModal").innerHTML = photographer.name;
-    document.getElementById("photographerPrice").innerHTML = photographer.price + '€ / jour'; //banniére prix/jour
+    document.getElementById("photographerPrice").innerHTML = photographer.price + '€ / jour';
 }
 
 /*********** Affichage  des medias de l ID + banniére total like *******************************/
 function displayMedias(medias) {
-    let totalLike = 0; //banniere total like
+    let totalLike = 0;
     // On recreer chaque card Html stocker dans enregistrementDom
     const enregistrementDom = medias.map((media) => {
-        totalLike += media.likes // banniere total like
+        totalLike += media.likes
         return galleryFactory(media);
     });
 
     document.querySelector(".grillePhotosProfil_main").innerHTML = enregistrementDom.join(''); //affiche grille photo du photographe
     // "join" renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau
-    document.querySelector('#totalLike').innerHTML = totalLike; // Affiche total like banniere
+    document.querySelector('#totalLike').innerHTML = totalLike; //total like banniere 
 }
 
 /********************* Coeur ***************************/
@@ -169,13 +170,6 @@ function like(id) {
     currentMediaLikes.innerText = newLike;
 }
 
-/*** Clavier coeur  ***/
-
-currentMedia.onkeydown = function(like) {
-    if (like.key === "Enter")
-        newLike()
-};
-
 /***********        TRI      ************************/
 function sortMediasByType(type) {
     let medias = document.querySelectorAll(".article_media");
@@ -190,21 +184,21 @@ function sortMediasByType(type) {
     }
 
 
-    /*********   Titre   ***********/
+    /***************   Titre   ***********************/
     function sortByTitle(medias) {
         medias.sort(function(a, b) {
             return a.dataset.title.localeCompare(b.dataset.title);
         });
     }
 
-    /*********    Pop  *************/
+    /***************    Pop  *******************/
     function sortByLike(medias) {
         medias.sort(function(a, b) {
             return b.dataset.likes - a.dataset.likes;
         });
     }
 
-    /********   Date   **************/
+    /****************   Date   ***********************/
     function sortByDate(medias) {
         medias.sort(function(a, b) {
             return a.dataset.date.localeCompare(b.dataset.date);
