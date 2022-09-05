@@ -121,7 +121,6 @@ function galleryFactory(data) {
         </a>
     </div>
   </article>`
-
 }
 
 function displayDataHeader(photographer) {
@@ -142,7 +141,7 @@ function displayMedias(medias) {
 
     document.querySelector(".grillePhotosProfil_main").innerHTML = enregistrementDom.join(''); //affiche grille photo du photographe
     // "join" renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau
-    document.querySelector('#totalLike').innerHTML = totalLike; //total like banniere 
+    document.querySelector('#totalLike').innerHTML = totalLike; //total like banniere
 }
 
 /********************* Coeur ***************************/
