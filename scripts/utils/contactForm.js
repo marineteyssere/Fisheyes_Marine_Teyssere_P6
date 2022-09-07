@@ -76,8 +76,8 @@ form.addEventListener("submit", (e) => {
     console.log("Prénom:", e.target.firstName.value);
     console.log("Email:", e.target.email.value);
     console.log("Message:", e.target.message.value);
-
-    document.getElementById("formulaire").style.display = "none";
+    document.getElementById("dialog").style.display = "none";
+    doc.style.display = 'block';
 
 
 });
